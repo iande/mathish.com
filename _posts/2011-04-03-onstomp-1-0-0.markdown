@@ -1,0 +1,30 @@
+---
+layout: post
+title: OnStomp 1.0.0
+disqus_identifier: onstomp_1_0_0
+---
+The [OnStomp](https://github.com/meadvillerb/onstomp) gem version 1.0.0 has been
+released.  It deprecates my previous Ruby stomp client
+[Stomper](https://github.com/iande/stomper).
+
+OnStomp supports both the 1.0 and 1.1 STOMP protocols, sports an event-driven
+interface and reads and writes sockets through non-blocking goodness.
+You install the gem with
+
+    gem install onstomp
+
+
+While you're at it, why not have a cup of coffee and peruse
+[the docs](http://mdvlrb.com/onstomp).  I'm in the process of writing user
+and developer "narratives," but the code itself has been documented with
+[YARD](http://yardoc.org/) (Yay!)
+
+While I am the only contributor / author of the gem, I'm putting this under
+the [meadvillerb](https://github.com/meadvillerb) community to inflate its
+codebase and maybe foster some Meadville Ruby action.
+
+You can report any issues through the
+[bugtracker](https://github.com/meadvillerb/onstomp/issues).
+
+Note to self: roll with one markup language, using textile and markdown in
+different contexts results in a lot of editing.

@@ -1,0 +1,13 @@
+---
+layout: post
+title: Stomper 2.0.[3-5]
+disqus_identifier: stomper_2_0_3-5
+---
+In working out the particulars of a
+[failover](https://github.com/iande/stomper-failover) extension to
+[Stomper](https://github.com/iande/stomper), I discovered a few subtle but
+frustrating bugs.  As a result, I pushed out 3 versions of the
+[Stomper gem](https://rubygems.org/gems/stomper) today.
+This may be the greatest accomplishment of my life.
+
+At the risk of sounding crazy, I've replaced my toes with grapes.

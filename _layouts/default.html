@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mathish - {{ page.title }}</title>
+    <link rel="stylesheet" type="text/css" href="/css/display.css" />
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/jquery-ui.js"></script>
+  </head>
+  
+  <body>
+    <section class="behold ui-corner-top">
+      <header>
+        <h1 class="ui-corner-all"><a href="/" title="Mathish">Mathish</a></h1>
+        <p>sometimes i say things here</p>
+        <nav class="ui-corner-right">
+          <h2>Pages</h2>
+          <ul>
+          {% for p in site.pages %}
+            <li><a href="{{ p.url }}">{{ p.title }}</a></li>
+          {% endfor %}
+          </ul>
+          <h2>Posts</h2>
+          <ol>
+            {% for post in site.posts %}
+            <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+            {% endfor %}
+          </ol>
+        </nav>
+      </header>
+    
+      <section>
+        {{ content }}
+      </section>
+    
+      <footer>
+        <p>Mathish &copy; Ian D. Eccles &mdash; Fortified with
+          <a href="http://diveintohtml5.org/" title="Dive in to HTML5">HTML5</a>
+          and extra
+          <a href="https://github.com/mojombo/jekyll" title="Jekyll site generator">Jekyll</a>
+          goodness!</p>
+      </footer>
+    </section>
+  </body>
+</html>

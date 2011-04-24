@@ -1,0 +1,98 @@
+---
+layout: post
+title: STOMP 1.1
+disqus_identifier: stomp_1_1
+---
+Every post I make to the stomp-spec group that isn't a "+1" or "me, too!"
+is often followed up with a thought of "you're a moron" about 10 minutes
+later.  I'm going to improve this situation by spending some time hashing out
+my thoughts here, and if they still look good a couple hours later, then I'll
+post them.
+
+### CONNECT and CONNECTED Header Issues
+
+STOMP 1.0 does not allow the octets ':' and LF to appear in header names.
+It also does not allow the LF octet in a header value.  These conditions make
+sense, ':' serves as a delimiter between a header name and its value, and LF
+serves as a delimiter between headers.  However, this means certain
+characters cannot be used within headers, and that can be a problem, for
+example, if you want to stuff a JSON encoded string into a header value.
+
+STOMP 1.1 rectifies this by specifying escape sequences for LF and ':', '\n'
+(two octets, not the single character \n) and '\c' respectively.
+Naturally, as we use '\' as an escape sequence indicator, we need an escape
+sequence for literal '\' octets, and thus have '\\'.
+
+The problem is that until the protocol version is fully negotiated, header
+escaping/unescaping may produce undesirable results.  That is where the
+CONNECT and CONNECTED frames come in to play.
+
+#### Scenario 1
+
+A client could send a CONNECT frame with escaped headers.  Eg:
+
+    CONNECT
+    login:DOMAIN\\me
+    passcode:s6842FW!\c4284\\$
+    some\cheader\cname:value\\of\nthe header
+    accept-version:1.1
+
+    ^@
+
+The client has indicated that it will only accept a 1.1 connection and has
+used escaping appropriate for that version.  The server, however, does not
+know that the client will only accept version 1.1 until it has already read
+the escaped header from the stream.
+
+#### Scenario 2
+
+A client could send a CONNECT frame that accepts either version 1.0 or 1.1,
+and use only STOMP 1.0 compliant headers.  However, even before the server
+issues a CONNECTED frame, it already knows which version of the spec is going
+to be used.  The client, however, does not.  If the server decides on STOMP
+1.1, and sends a CONNECTED frame to the client such as:
+
+    CONNECTED
+    session:D\chostname-63348-1297283114292-4\c0
+    some\cheader\cname:value\\of\nthe header
+    version:1.1
+
+    ^@
+
+The server already knows we're using STOMP 1.1, but the client will not figure that out until it reads the 'version' header.
+
+#### Resolutions
+
+1. Header processing of CONNECT frames by the server has to be deferred until
+   'accept-version' is read. If list of versions include 1.0, it would be bad
+   form if the client escaped headers according to 1.1, so no unescaping need
+   be done. However, if the client is only version 1.1, the server may have
+   to unescape headers. Similarly, a client will have to defer processing of
+   all headers of a received CONNECTED frame until 'version' is read. From
+   the value given, the client can then unescape headers and values (1.1), or
+   leave them untouched (1.0). In either case, the spec may benefit from an
+   explicit statement regarding the treatment of CONNECT/CONNECTED headers.
+1. Essentially follow Resolution 1, but require the first header of CONNECT
+   to be 'accept-version' and the first header of CONNECTED to be 'version',
+   this allows servers and clients to decide on the escaping rules to follow
+   after reading the first header.
+1. Require that CONNECT/CONNECTED frames follow STOMP 1.0 header rules,
+   regardless of the desired protocol version (ie: no escape sequences get
+   generated, no unescaping gets done, LF and ':' are not allowed in header
+   names, LF is not allowed in header values)
+
+Of these, Resolution 3 is the most appealing to me, because it doesn't
+require me to do anything else.  Both Resolution 1 and Resolution 2 will
+require some changes, though both are obviously doable.  Resolution 1 doesn't
+require any further changes to the spec, except perhaps a warning about
+deferring header decoding until you know what version is running.  Resolution
+2 is only helpful because of how I process headers on the stream, and is
+probably just selfish.
+
+Found the following in the [Protocol Negotiation section](http://stomp.github.com/stomp-specification-1.1.html#Protocol_Negotiation).
+
+> The protocol that will be used for the rest of the session will be the
+> highest protocol version that both the client and server have in common.
+
+All that really remains then is clarifying when the "rest of the session"
+begins (with the CONNECTED frame or after the CONNECTED frame.)

@@ -1,0 +1,174 @@
+body {
+  background: #bbb;
+  color: #000;
+  font-family: "Helvetica Neue", helvetica, verdana, sans-serif;
+  font-size: 1em;
+}
+pre {
+  background: #000;
+  color: #ddd;
+  font-size: 12px;
+  line-height: 1.25;
+  margin: 0;
+  overflow: auto;
+  padding: 5px;
+}
+code {
+  font-family: "Monaco", monospace;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Lucida Grande", "Helvetica Neue", helvetica, verdana, sans-serif;
+}
+.behold {
+  background: #fff;
+  border-left: 1px solid #bbb;
+  border-right: 1px solid #bbb;
+  box-shadow: 0px 4px 8px #000;
+  -moz-box-shadow: 0px 4px 8px #000;
+  -webkit-box-shadow: 0px 4px 8px #000;
+  font-size: 13px;
+  margin: 40px auto 0 auto;
+  width: 560px;
+}
+.behold > header {
+  background: #eee url("../images/background-header.png") repeat-x bottom left;
+  border-bottom: 1px solid #888;
+  height: 64px;
+  margin-bottom: 48px;
+  position: relative;
+}
+.behold > header > h1 {
+  background: transparent url("../images/site-logo.png") no-repeat center center;
+  border: 1px solid #eee;
+  box-shadow: 0px 0px 4px #000;
+  -moz-box-shadow: 0px 0px 4px #000;
+  -webkit-box-shadow: 0px 0px 4px #000;
+  height: 116px;
+  left: -32px;
+  position: absolute;
+  top: -16px;
+  width: 116px;
+}
+.behold > header > h1 > a {
+  display: block;
+  font-size: 48px;
+  margin: 24px 0 0 136px;
+}
+.behold > header > h1 > a:link, .behold > header > h1 > a:visited {
+  color: #003234;
+  text-decoration: none;
+  text-shadow: #fff 0px 1px 0px;
+}
+.behold > header > h1 > a:hover {
+  color: #fff;
+  text-decoration: none;
+  text-shadow: #000 0px 1px 0px;
+}
+.behold > header > p {
+  bottom: 8px;
+  color: #fff;
+  position: absolute;
+  right: 30px;
+  text-align: right;
+  text-shadow: 0px 1px #000;
+  width: 220px;
+}
+.behold > header > nav {
+  background: #fff;
+  border-left: 1px solid #888;
+  border-top: 1px solid #888;
+  box-shadow: 2px 2px 4px #000;
+/*  -moz-box-shadow: 4px 4px 24px #000;
+  -webkit-box-shadow: 4px 4px 24px #000;*/
+  font-size: 12px;
+  padding: 10px 0 10px 4px;
+  position: absolute;
+  right: -205px;
+  top: 64px;
+  width: 200px;
+}
+.behold > header > nav > h2 {
+  margin: 5px 0 5px 5px;
+}
+.behold > header > nav > ul, .behold > header > nav > ol {
+  line-height: 1.5;
+  margin: 0 10px;
+}
+.behold > header > nav li {
+  margin: 8px 0;
+}
+.behold > section {
+  margin: 0 20px;
+}
+.behold > section > article {
+  margin: 14px 0 28px 0;
+}
+.behold > section > article > section > p {
+  line-height: 1.5;
+  margin: 8px 0;
+}
+.behold > section > article > section > pre,
+.behold > section > article > section > .highlight {
+  margin: 1em 0;
+}
+.behold > section > article .pub-line {
+  color: #888;
+  font-size: 12px;
+  text-align: right;
+}
+.behold > section a:link, .behold > section a:visited {
+  color: #66a4a7;
+  text-decoration: none;
+}
+.behold > section a:hover {
+  color: #00a0a7;
+  text-decoration: underline;
+}
+.behold > section h2 > a:link, .behold > section h2 > a:visited, a:link, a:visited {
+  color: #a93632;
+  text-decoration: none;
+}
+.behold > section h2 > a:hover, a:hover {
+  color: #a9211c;
+  text-decoration: underline;
+}
+.behold > section h2 {
+  font-size: 18px;
+  font-weight: bold;
+}
+.behold > section h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 16px;
+}
+.behold > section h4 {
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 16px;
+}
+.behold > section ol, .behold > section ul {
+  line-height: 1.5;
+  padding-left: 10px;
+}
+.behold > section ol {
+  list-style-type: decimal;
+}
+.behold > section ul {
+  list-style-type: circle;
+}
+.behold > section li {
+  margin: 8px 8px 8px 24px;
+}
+.behold > footer {
+  color: #8ea6a7;
+  font-size: 12px;
+  margin-top: 32px;
+  padding-bottom: 5px;
+  text-align: right;
+}
+.behold > footer p {
+  padding: 5px 10px;
+}
+.page-title {
+  text-align: center;
+}
