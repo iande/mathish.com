@@ -27,3 +27,7 @@ powers of `TextMate` and `git`.
 
 *Postscript*: I'm now using [disqus](http://disqus.com/) for comments.
 Hopefully I don't end up regretting this decision.
+
+*Postscript 2*: I've deleted what was left of my myOpenID account.  Farewell
+OpenID, you were an interesting experiment, but I think your utility is going
+to be relegated largely to the fringe.
