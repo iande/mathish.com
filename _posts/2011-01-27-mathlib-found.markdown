@@ -1,7 +1,6 @@
 ---
 layout: post
 title: mathlib Found
-disqus_identifier: mathlib_found
 ---
 Roughly 5-6 years ago, I made an effort to take Fractal rendering code I
 developed during college and refactor it into a general purpose Java library,
@@ -16,3 +15,4 @@ there were some novel bits in there, and implementations of a number of
 non-trivial functions extended to `f: C -> C`.  At the very least, it will
 probably help with my work on implementing a Mandelbrot renderer in HTML5
 using `<canvas>` and `WebWorker`s.
+  
