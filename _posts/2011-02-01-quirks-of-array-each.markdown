@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Quirks of Array#each
-disqus_identifier: quirks_of_array_each
 ---
 I'm probably just late to the party, but at least with Ruby 1.8.7 and 1.9.2,
 there's nothing special that has to be done for each of these examples

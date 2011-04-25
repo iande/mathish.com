@@ -1,7 +1,6 @@
 ---
 layout: post
 title: OnStomp 1.0.0
-disqus_identifier: onstomp_1_0_0
 ---
 The [OnStomp](https://github.com/meadvillerb/onstomp) gem version 1.0.0 has been
 released.  It deprecates my previous Ruby stomp client

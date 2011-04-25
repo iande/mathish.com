@@ -1,7 +1,6 @@
 ---
 layout: post
 title: OpenSSL - Brief Notes
-disqus_identifier: openssl_brief_notes
 ---
 When setting up OpenSSL validation in Ruby, I ran into a few issues.  I'll
 revisit this post later, but for my own memory, here's the big one:

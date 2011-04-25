@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Mandelbrot Sets in Javascript
-disqus_identifier: mandelbrot_sets_in_javascript
 ---
 I'm a big fan of fractals.  From
 [Lindenmayer Systems](http://en.wikipedia.org/wiki/L-system) to variations on

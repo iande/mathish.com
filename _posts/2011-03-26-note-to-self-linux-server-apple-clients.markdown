@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Note to Self - Linux Server & Apple Clients
-disqus_identifier: linux_server_apple_clients
 ---
 Install `cups` and `splix` to get suport for the Samsung ML-2510 Laser
 Printer.

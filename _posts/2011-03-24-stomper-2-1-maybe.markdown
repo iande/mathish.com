@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Stomper 2.1.maybe?
-disqus_identifier: stomper_2_1_maybe
 ---
 After a significant re-tooling of Stomper's IO handling, I've got something
 that seems very fast and very stable, using non-blocking IO.
