@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: pg gem on OS X
 ---
 ### Building `pg` gem on OS X Snow Leopard

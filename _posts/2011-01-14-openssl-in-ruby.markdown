@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: OpenSSL in Ruby
 ---
 The following code assumes that there is a subdirectory named `certs`
