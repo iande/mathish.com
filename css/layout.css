@@ -173,7 +173,7 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
 }
 #about-face {
-  background: transparent url("../images/face.jpg") no-repeat center center;
+  background: transparent url("../images/face.png") 0 0;
   border: 1px solid #eee;
   box-shadow: 0px 0px 4px #000;
   -moz-box-shadow: 0px 0px 4px #000;
@@ -181,4 +181,13 @@ h1, h2, h3, h4, h5, h6 {
   height: 116px;
   margin: 32px auto 0 auto;
   width: 116px;
+}
+#about-face.face-1 {
+  background-position: 0 0;
+}
+#about-face.face-2 {
+  background-position: 116px 0;
+}
+#about-face.face-3 {
+  background-position: 232px 0;
 }
