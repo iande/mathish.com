@@ -12,10 +12,10 @@ have not been converted to HTML.
   [Sketch Book Pro](http://usa.autodesk.com/adsk/servlet/pc/index?id=6848332&siteID=123112)
   were influenced by my work, but they did get the UI right.
 * Fractional Calculus
-  Divided into two brief pages, one for functions of the form
-  [x<sup>n</sup>](/papers/fractional-trivials.pdf) and one for
-  [general polynomials](/papers/fractional-polynomials.pdf).  Certainly not
-  invented by me (see:
+  Divided into two brief pages, one for
+  [trivial polynomials](/papers/fractional-trivials.pdf) of the form x<sup>n</sup>
+  and one for [general polynomials](/papers/fractional-polynomials.pdf).
+  Certainly not invented by me (see:
   [Fractional Calculus on Wikipedia](http://en.wikipedia.org/wiki/Fractional_calculus).)
   These pages only include the formulae for calculating half-derivatives and
   half-integrals.
