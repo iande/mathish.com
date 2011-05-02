@@ -13,7 +13,7 @@ have not been converted to HTML.
   were influenced by my work, but they did get the UI right.
 * Fractional Calculus
   Divided into two brief pages, one for
-  [trivial polynomials](/papers/fractional-trivials.pdf) of the form x<sup>n</sup>
+  [trivial polynomials](/papers/fractional-trivials.pdf) of the form x^n
   and one for [general polynomials](/papers/fractional-polynomials.pdf).
   Certainly not invented by me (see:
   [Fractional Calculus on Wikipedia](http://en.wikipedia.org/wiki/Fractional_calculus).)
