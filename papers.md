@@ -13,9 +13,9 @@ have not been converted to HTML.
   were influenced by my work, but they did get the UI right.
 * Fractional Calculus
   Divided into two brief pages, one for functions of the form
-  [x^n](/papers/fractional-trivials.pdf) and one for
+  [x<sup>n</sup>](/papers/fractional-trivials.pdf) and one for
   [general polynomials](/papers/fractional-polynomials.pdf).  Certainly not
   invented by me (see:
-  [Fractional Calculus on Wikipedia](http://en.wikipedia.org/wiki/Fractional_calculus),
-  these pages only include the formulae for calculating half-derivatives and
+  [Fractional Calculus on Wikipedia](http://en.wikipedia.org/wiki/Fractional_calculus).)
+  These pages only include the formulae for calculating half-derivatives and
   half-integrals.
