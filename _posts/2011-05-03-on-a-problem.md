@@ -172,7 +172,36 @@ extractors.  The monitors can now spin up and spin down other instances
 <a href="#note-monitors" id="ref-monitors">without changing*</a>
 how the other components in the system operate.
 
-### Possible Improvements
+### Glossed Over Details and Suggested Improvements
+
+#### Tracking the Overall Job
+
+The system outlined here performs its work based upon the production and
+consumption of simple event messages passed through the message queue.
+When the receiver finishes storing a new book, it only tells an extractor
+where to find the file, we have not given the system a way to determine the
+overall process of a particular "job."  Fortunately, most message queues allow
+for headers to be attached to any message, and this will allow us to better
+track where a book is in the processing pipeline.  If the dispatcher gives
+an author the address of a receiver and a session key when she starts the
+uploading process, she can in turn provide the receiver with this key.  Now,
+every message the receiver passes to the queue will contain this session
+key as a message header and all consumers (namely the extractors) of these
+messages will copy that header to the messages they produce.  From there, we
+can either passively monitor the progress of a book by tracking the session
+key header, or we can actively poll workers for status updates for a given
+session key.  The latter will require some additional logic to be built
+in to our workers.
+
+
+#### Working in Bulk
+
+One way to reduce the relative chatter between components and the message
+queue is for the system to prefer to work on batches of books whenever possible
+instead of processing one book at a time.  This doesn't reduce the number of
+messages being passed, but it does mean that fewer messages are being passed
+per book.
+
 
 #### Fault Tolerant Dispatching
 
