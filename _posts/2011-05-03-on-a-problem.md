@@ -245,7 +245,7 @@ but it is common for message queues to support two types of destinations:
 `queues` and `topics`.  Messages passed to a `queue` are delivered to a
 single subscriber (a receiver in our example) while those passed to a
 `topic` are delivered to all subscribers.
-[ [jump back](#ref-topics-and-queues) ]
+[&nbsp;[jump back](#ref-topics-and-queues)&nbsp;]
 
 #### Note: Monitors
 
@@ -258,4 +258,5 @@ itself down.  While we're on the subject of omissions through simplification,
 if a receiver were to fail to receive a book, we could have it send an
 "upload failed" notification, providing the dispatcher with the opportunity
 to notify the author that she needs to re-send the book to a newly determined
-available receiver. [ [jump back](#ref-monitors) ]
+available receiver.
+[&nbsp;[jump back](#ref-monitors)&nbsp;]
