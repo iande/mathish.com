@@ -257,5 +257,5 @@ said receiver has completed its current requests, it would gracefully shut
 itself down.  While we're on the subject of omissions through simplification,
 if a receiver were to fail to receive a book, we could have it send an
 "upload failed" notification, providing the dispatcher with the opportunity
-to notify the author that it needs to re-send the book to a newly determined
+to notify the author that she needs to re-send the book to a newly determined
 available receiver. [[jump back](#ref-monitors)]
