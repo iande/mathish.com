@@ -14,7 +14,7 @@ attention of scads of prolific authors, perhaps a million authors each having
 a hundred books to their name.  Assuming no duplicates, we're looking at
 about 475 Tb of data that needs stored and processed.
 
-### Overview of Solution
+### Overview of a Solution
 
 We begin with [an overview](#figure-overview) of the components
 involved in receiving and processing all of these books.  In the figure,
