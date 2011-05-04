@@ -21,8 +21,8 @@ involved in receiving and processing all of these books.  In the figure,
 concrete entities are represented by rounded rectangles while octagons are
 used to represent pools or clusters of entities.  Solid lines are used to
 indicate the direction of communication between components. As a brief aside,
-when we refer to "authors", we are really referring to an author and a
-software application they are using to interact with our system.
+when we refer to "authors", we are really referring to authors and the
+software applications they are using to interact with our system.
 
 <figure class="display-mode" id="figure-overview">
   <img src="/images/cloud-overview.png"
