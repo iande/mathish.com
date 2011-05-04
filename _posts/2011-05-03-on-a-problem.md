@@ -77,8 +77,7 @@ message and quickly gets to work.
 The use of a message queue to handle event dispatching incurs more overhead
 than if all of the components communicated directly; however there are some
 important advantages to this approach that will be covered in the section
-<a href="#communicating-through-the-message-queue">"Communicating through the
-  Message Queue"</a>.
+["The Value of a Message Queue"](#the-value-of-a-message-queue).
 
 ### Extracting the Meta-data
 
