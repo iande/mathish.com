@@ -178,7 +178,7 @@ how the other components in the system operate.
 The system outlined here performs its work based upon the production and
 consumption of simple event messages passed through the message queue.
 When the receiver finishes storing a new book, it only tells an extractor
-where to find the file, we have not given the system a way to determine the
+where to find the file.  We have not given the system a way to determine the
 overall process of a particular "job."  Fortunately, most message queues allow
 for headers to be attached to any message, and this will allow us to better
 track where a book is in the processing pipeline.  If the dispatcher gives
