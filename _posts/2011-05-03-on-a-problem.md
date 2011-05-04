@@ -12,7 +12,7 @@ serve as a good summary of its topic, and expose an author to others who write
 about similar subjects.  Finally, let's suppose that we have attracted the
 attention of scads of prolific authors, perhaps a million authors each having
 a hundred books to their name.  Assuming no duplicates, we're looking at
-about 475 Tb of data that needs stored and processed.
+about 475 Tb of data that need stored and processed.
 
 ### Overview of a Solution
 
