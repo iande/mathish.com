@@ -30,6 +30,5 @@ problems getting here over the next couple days, or you might be running
 with the new DNS entries mere moments after I push the changes through my
 registrar.  It's hard to say, but eventually the updates will make their
 way to you, so sit tight and we'll return after this short break!
-{% math %}
-  e^{i\theta} = \cos\theta + i\sin\theta
-{% endmath %}
+
+Please enjoy the following identity: {% m %}e^{i\theta} = \cos\theta + i\sin\theta{% em %}
