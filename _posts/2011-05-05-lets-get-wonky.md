@@ -31,8 +31,4 @@ with the new DNS entries mere moments after I push the changes through my
 registrar.  It's hard to say, but eventually the updates will make their
 way to you, so sit tight and we'll return after this short break!
 
-PS: In the mean time, enjoy the following identity:
-
-{% math %}
-  e^{i\theta} = \cos\theta + i\sin\theta
-{% endmath %}
+PS: In the mean time, enjoy the following identity: {% m %}e^{i\theta} = \cos\theta + i\sin\theta{% em %}
