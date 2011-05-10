@@ -14,6 +14,7 @@ Assuming that premise is true, here are a few facts about me.
   (circa 1970's)
 
 An additional piece of information has been encoded in the previous list.
+
 <div id="about-face" class="face-1">
 </div>
 

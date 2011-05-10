@@ -201,3 +201,6 @@ figure.display-mode figcaption:before {
   content: "Figure: ";
   font-weight: bold;
 }
+dfn {
+  font-style: italic;
+}
