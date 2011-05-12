@@ -19,6 +19,22 @@ code {
 h1, h2, h3, h4, h5, h6 {
   font-family: "Lucida Grande", "Helvetica Neue", helvetica, verdana, sans-serif;
 }
+figure.display-mode {
+  margin: 20px 0;
+  text-align: center;
+}
+figure.display-mode figcaption {
+}
+figure.display-mode figcaption:before {
+  content: "Figure: ";
+  font-weight: bold;
+}
+dfn {
+  font-style: italic;
+}
+em {
+  font-style: italic;
+}
 .behold {
   background: #fff;
   border-left: 1px solid #bbb;
@@ -190,17 +206,4 @@ h1, h2, h3, h4, h5, h6 {
 }
 #about-face.face-3 {
   background-position: 232px 0;
-}
-figure.display-mode {
-  margin: 20px 0;
-  text-align: center;
-}
-figure.display-mode figcaption {
-}
-figure.display-mode figcaption:before {
-  content: "Figure: ";
-  font-weight: bold;
-}
-dfn {
-  font-style: italic;
 }
