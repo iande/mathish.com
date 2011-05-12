@@ -76,7 +76,7 @@ danger of ambiguity, we may simply refer to two (or more) programs as being
 
 Consider all of the programs that might satisfy the test suite.  There are an
 infinite number of programs in this set (I will provide a trivial proof of
-this statement in the section "[Example Programs and Calculations](#example-programs-and-calculations)".)
+this statement in the section "[Example Programs and Calculations](#example-programs-and-calculations).")
 Now, let's suppose we have a metric, {% m %}|p|{% em %}, that measures the
 size of a program.  As a trivial example, let's suppose {% m %}|p|{% em %} is
 the number of characters in the string representation of program {% m %}p{% em %}.
