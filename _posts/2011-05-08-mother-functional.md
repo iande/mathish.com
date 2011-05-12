@@ -35,12 +35,12 @@ For our purposes, a <dfn>program</dfn>, {% m %}p{% em %}, is a function of input
 returns some kind of output.  We will use {% m %}\mathcal{P}{% em %} to denote
 the set of all programs.
 
-A <dfn>test</dfn>, {% m %}t{% em %}, is a function that maps a program, {% m %}p{% em %}
+A <dfn>test</dfn>, {% m %}t{% em %}, is a function that maps a program, {% m %}p{% em %},
 to either 1, for true, or 0, for false: {% m %}t : \mathcal{P} \rightarrow \{0, 1\}{% em %}.
 
 A program, {% m %}p{% em %}, is said to <dfn>satisfy</dfn> a test,
-{% m %}t{% em %}, if and only if {% m %}t(p) = 1{% em %}.  We will this
-relationship with the symbol {% m %}\models{% em %}:
+{% m %}t{% em %}, if and only if {% m %}t(p) = 1{% em %}.  We will represent
+this relationship with the symbol {% m %}\models{% em %}:
 
 {% math %}
   p \models t \iff t(p) = 1
