@@ -80,7 +80,7 @@ this statement in the section "[Example Programs and Calculations](#example-prog
 Now, let's suppose we have a metric, {% m %}|p|{% em %}, that measures the
 size of a program.  As a trivial example, let's suppose {% m %}|p|{% em %} is
 the number of characters in the string representation of program {% m %}p{% em %}.
-We could use a more interesting measurement,
+We could use a more interesting measurement, 
 but for now let's stick with the simple "string length" measurement.  We
 take this measuring stick and apply it to each of the programs in the set
 of programs that satisfy a given test suite, and record the "shortest length"
