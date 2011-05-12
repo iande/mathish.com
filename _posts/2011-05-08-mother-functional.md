@@ -471,6 +471,25 @@ grow by 94 characters.  Changing a test changes a program... I smell a
 potentially useful metric in there, and we will dig deeper into this next
 time.
 
+The chosen problem of summing the integers from 1 to {% m %}k{% em %} is
+certainly a trivial one, and because of its simplicity, encoding the test
+suite as a string was also pretty easy.  However, with the right `adapter`
+we could encode any test suite as a string even if each test spends a lot of
+time setting up the initial state before verifying its expectations.
+
+The goal here was to show a relationship between Kolmogorov and Functional
+complexity measurements, so we tried to keep the components simple and
+manageable.  In doing so, we were able to find a direct relationship between
+the two by considering a description language that, informally, is result of
+augmenting our host language (Ruby) with the expectations of our test suite
+(this is how the `adapter` was constructed.)  Through the use of a dash of
+mathematics and a pinch of hand-waving, we have confirmed something that is
+both cool and almost painfully obvious: test suites can be described
+by programs, and the complexity of a test suite can be measured by those
+programs.
+
+### A Taste of Things to Come
+
 I had intended to explore the relationship between these measures of
 complexity and somewhat vague notions such as "readability" and
 "maintainability" in this article, but it's already quite a bit longer than
