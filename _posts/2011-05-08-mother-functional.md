@@ -73,7 +73,7 @@ We could use a more interesting measurement,
 but for now let's stick with the simple "string length" measurement.  We
 take this measuring stick and apply it to each of the programs in the set
 of programs that satisfy a given test suite, and record the "shortest length"
-measured.  This "shortest length" is the <dfn>functional complexity</dfn> of
+measured.  This "shortest length" is the <dfn>satisfaction complexity</dfn> of
 the test suite.  Given a metric for a program {% m %}|p|{% em %},
 the functional complexity of a test suite {% m %}D_{\sigma}{% em %}, is
 given by,
@@ -83,8 +83,8 @@ given by,
 {% endmath %}
 
 And finally, we define the <dfn>functional complexity of a program,
-modulo a test suite</dfn>, {% m %}F_{\sigma}(p){% em %}, to be the functional
-complexity of the test suite, {% m %}D_{\sigma}{% em %} if and only if the
+modulo a test suite</dfn>, {% m %}F_{\sigma}(p){% em %}, to be the satisfaction
+complexity of the test suite, {% m %}D_{\sigma}{% em %}, if and only if the
 program satisfies the test suite.
 Alternatively,
 
