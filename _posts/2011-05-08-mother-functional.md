@@ -75,7 +75,7 @@ take this measuring stick and apply it to each of the programs in the set
 of programs that satisfy a given test suite, and record the "shortest length"
 measured.  This "shortest length" is the <dfn>satisfaction complexity</dfn> of
 the test suite.  Given a metric for a program {% m %}|p|{% em %},
-the satisfaction complexity of a test suite {% m %}D_{\sigma}{% em %}, is
+the satisfaction complexity of a test suite, {% m %}D_{\sigma}{% em %}, is
 given by,
 
 {% math %}
