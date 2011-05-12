@@ -64,8 +64,8 @@ danger of ambiguity, we may simply refer to two (or more) programs as being
 {% endmath %}
 
 Consider all of the programs that might satisfy the test suite.  There are an
-infinite number of programs in this set (I will provide a trivial proof of
-this statement in the section "[Example Programs and Calculations](#example-programs-and-calculations).")
+infinite number of programs in this set (a trivial proof of this statement can
+be found in "[Example Programs and Calculations](#example-programs-and-calculations).")
 Now, let's suppose we have a metric, {% m %}|p|{% em %}, that measures the
 size of a program.  As a trivial example, let's suppose {% m %}|p|{% em %} is
 the number of characters in the string representation of program {% m %}p{% em %}.
@@ -75,7 +75,7 @@ take this measuring stick and apply it to each of the programs in the set
 of programs that satisfy a given test suite, and record the "shortest length"
 measured.  This "shortest length" is the <dfn>satisfaction complexity</dfn> of
 the test suite.  Given a metric for a program {% m %}|p|{% em %},
-the functional complexity of a test suite {% m %}D_{\sigma}{% em %}, is
+the satisfaction complexity of a test suite {% m %}D_{\sigma}{% em %}, is
 given by,
 
 {% math %}
