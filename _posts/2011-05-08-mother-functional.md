@@ -47,24 +47,12 @@ this relationship with the symbol {% m %}\models{% em %}:
   p \models t \iff t(p) = 1
 {% endmath %}
 
-A test, {% m %}t{% em %}, is a <dfn>meaningful test</dfn> if and only if there
-exist two programs, {% m %}p_1{% em %} and {% m %}p_2{% em %}, such that
-{% m %}t(p_1) = 0{% em %} and {% m %}t(p_2) = 1{% em %}.  That is to say,
-there exists at least one program that satisfies the test and at least one
-program that does not satisfy the test.
-
 A test suite, {% m %}\sigma = \{ t_1, t_2, \ldots, t_n \}{% em %}, is a set of
 {% m %}n{% em %} tests.  We denote the number of tests in a suite as
 {% m %}|\sigma| = n{% em %}. A program is said to <dfn>satisfy</dfn> a test suite,
 {% m %}\sigma{% em %} if it satisfies each of the tests in {% m %}\sigma{% em %}.
 More formally, {% m %}p \models \sigma{% em %} if, and only if
-{% m %}\forall t \in \sigma, p \models t{% em %}.  As all tests are bound
-to the range {% m %}\{0, 1\}{% em %}, we can provide an equivalent arithmetic
-definition:
-
-{% math %}
-  p \models \sigma \iff \sum_{i=1}^{|\sigma|} t_i(p) = |\sigma|.
-{% endmath %}
+{% m %}\forall t \in \sigma, p \models t{% em %}.
 
 We say two programs are <dfn>functionally congruent modulo a test
 suite</dfn> when they both satisfy the same test suite.  When there is no
@@ -91,10 +79,7 @@ the functional complexity of a test suite {% m %}D_{\sigma}{% em %}, is
 given by,
 
 {% math %}
-\begin{aligned}
-   L_{\sigma} & = \left\{ |p| : p \models \sigma \right\}, \\
-  D_{\sigma} & = \min L_{\sigma}.
-\end{aligned}
+  D_{\sigma} = \min \left\{ |p| : p \models \sigma \right\}
 {% endmath %}
 
 And finally, we define the <dfn>functional complexity of a program,
