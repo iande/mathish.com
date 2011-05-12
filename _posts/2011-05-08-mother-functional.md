@@ -465,13 +465,12 @@ time setting up the initial state before verifying its expectations.
 The goal here was to show a relationship between Kolmogorov and Functional
 complexity measurements, so we tried to keep the components simple and
 manageable.  In doing so, we were able to find a direct relationship between
-the two by considering a description language that, informally, is result of
-augmenting our host language (Ruby) with the expectations of our test suite
-(this is how the `adapter` was constructed.)  Through the use of a dash of
-mathematics and a pinch of hand-waving, we have confirmed something that is
-both cool and almost painfully obvious: test suites can be described
-by programs, and the complexity of a test suite can be measured by those
-programs.
+the two by considering a description language that, informally, is the result
+of augmenting our host language (Ruby) with the expectations of our test suite
+(this is how the `adapter` was constructed.)  With a dash of mathematics and
+a pinch of hand-waving, we have shown that if Kolmogorov complexity is a
+meaningful measurement of a program then so to is Functional complexity
+modulo a test suite.
 
 ### A Taste of Things to Come
 
