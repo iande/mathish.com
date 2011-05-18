@@ -25,7 +25,7 @@
           </ul>
           <h2>Recent Posts</h2>
           <ol>
-          {% for p in site.posts limit:10 %}
+          {% for p in site.posts limit:20 %}
             <li><a href="{{ post.url }}">{{ p | short_title }}</a></li>
           {% endfor %}
           </ol>
