@@ -127,6 +127,10 @@ em {
 .behold > section > article > section > .highlight {
   margin: 1em 0;
 }
+.behold > section > article > section > blockquote {
+  margin: 1em 0;
+  text-align: center;
+}
 .behold > section > article > footer {
   margin-top: 16px;
 }
