@@ -36,6 +36,10 @@ module Jekyll
       @url = "/#{dir}/#{@filename}"
     end
     
+    def <=> other
+      self.name <=> other.name
+    end
+    
     def to_liquid
       [:name, :posts, :description, :url].inject({}) do |liq, prop|
         liq[prop.to_s] = __send__ prop
@@ -84,7 +88,7 @@ module Jekyll
         dir = site.config['tag_dir'] || 'tags'
         site.taggings = site.tags.map do |tag, posts|
           Tagging.new dir, tag, posts
-        end
+        end.sort
         site.taggings.each do |tag|
           write_tag_index(site, dir, tag)
         end
