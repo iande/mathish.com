@@ -1,10 +1,8 @@
 ---
 layout: post
-title: On Functional Complexity - Part 2
-short_title: Functional Complexity 2
-series: Functional Complexity Modulo a Test Suite
+title: "Properties of Code: Readability"
+short_title: Properties of Code - Part 2
 tags: complexity theory
-published: false
 ---
 This is the second part in a series of articles I am writing on
 "[Functional Complexity Modulo a Test Suite](https://github.com/raganwald/homoiconic/blob/master/2009-06-02/functional_complexity.md)."
