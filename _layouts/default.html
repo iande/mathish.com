@@ -27,7 +27,7 @@
           <h2>Recent Posts</h2>
           <ol>
           {% for p in site.posts limit:10 %}
-            <li><a href="{{ post.url }}">{{ p | short_title }}</a></li>
+            <li><a href="{{ p.url }}">{{ p | short_title }}</a></li>
           {% endfor %}
             <li><a href="/all_posts.html">All Posts</a></li>
           </ol>
