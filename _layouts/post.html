@@ -10,12 +10,11 @@ layout: default
   </section>
   <footer>
     <nav class="taggings">
-      <h3>Tagged with</h3>
+      <h3>Tagged</h3>
       <ul>
       {% for tag in page.taggings %}
         <li class="tagging">
-          <a href="{{ tag.url }}"
-            title="{{ tag.description }}">{{ tag.name }}</a>
+          <a href="{{ tag.url }}" title="{{ tag.description }}">{{ tag.name }}</a>
         </li>
       {% endfor %}
       </ul>
