@@ -7,12 +7,31 @@ tags:
   - readability
   - thoughts
   - code
+published: false
 ---
 *Important Note*: What you see here is essentially a rough outline.  I have
 been mulling over these thoughts for a few days and made more than one attempt
 at writing this post.  I am "publishing" this outline in an attempt to force
 myself to work through this train of thought instead of scrapping it and
-starting over again from scratch.
+starting over again from scratch.  And this is why you should **not** post
+rough outlines.  You're wrong, in a sense, but it's because of the fact that
+Kolmogorov is kind of useless in practice.  As you covered in the previous
+post, if you take Ruby as the base language, then `.sum` carries the additional
+weight of the its definition in ActiveSupport.  However, it's all pretty
+arbitrary.  Why not use 'Ruby + ActiveSupport + OtherCoolGem' as your base
+language, then `(1..k).sum` is pretty terse.  If you put up a fight over
+including supporting libraries in the base language, then I could make the
+claim that you should be stuck purely with the keywords and grammar of the
+base language, which means you don't get shit like `Array#inject` for free
+either, so make sure to include the weight of that method in `sum` as well
+as the program that uses `inject` (and don't forget every other method of
+every class and module found in Ruby's core lib.)  Once you allow this
+extension, you head towards {% m %}e{% em %}, {% m %}\pi{% em %}, and
+{% m %}\phi{% em %}.  You can express particular convoluted strings with
+a few characters (the name of a function,) provided there is some mutual
+knowledge between you and the reader.  Use the sentence about monotremes and
+your public SSH key to illustrate the progression from raw strings to
+human compressibility/expansion, and then to naming (the origin of all things.)
 
 This is the second post in a series I am writing in response to
 "[Functional Complexity Modulo a Test Suite](https://github.com/raganwald/homoiconic/blob/master/2009-06-02/functional_complexity.md)."
