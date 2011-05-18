@@ -19,15 +19,17 @@
         <nav class="ui-corner-right">
           <h2>Pages</h2>
           <ul>
-          {% for p in site.pages %}
-            <li><a href="{{ p.url }}">{{ p.title }}</a></li>
-          {% endfor %}
+            <li><a href="/">Home</a></li>
+            <li><a href="/about.html">About Me</a></li>
+            <li><a href="/are-friends-electric.html">Are Friends Electric?</a></li>
+            <li><a href="/papers.html">Papers Un-HTML'd</a></li>
           </ul>
           <h2>Recent Posts</h2>
           <ol>
           {% for p in site.posts limit:10 %}
             <li><a href="{{ post.url }}">{{ p | short_title }}</a></li>
           {% endfor %}
+            <li><a href="/all_posts.html">All Posts</a></li>
           </ol>
           <h2>Tags</h2>
           <ul class="tag-cloud">
