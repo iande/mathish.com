@@ -40,7 +40,7 @@ More specifically, let's talk about the quality of written code that makes
 it easier (or harder) to understand: readability.  We're going to start off
 with a bold position and then slowly retreat from it.
 
-> There is no link between functional complexity and readability.
+<p class="bold-unfounded-claim">There is no link between functional complexity and readability.</p>
 
 This claim may not be precisely true, but let's indulge it and see where the
 thought takes us.

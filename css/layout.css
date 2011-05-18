@@ -131,6 +131,11 @@ em {
   margin: 1em 0;
   text-align: center;
 }
+.behold > section > article > section > .bold-unfounded-claim {
+  font-weight: bold;
+  margin: 1em 0;
+  text-align: center;
+}
 .behold > section > article > footer {
   margin-top: 16px;
 }
