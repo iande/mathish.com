@@ -1,6 +1,7 @@
 ---
 layout: post
 title: pg gem on OS X
+tags: postgres rubygems ruby code
 ---
 ### Building `pg` gem on OS X Snow Leopard
 

@@ -23,18 +23,22 @@
             <li><a href="{{ p.url }}">{{ p.title }}</a></li>
           {% endfor %}
           </ul>
-          <h2>Posts</h2>
+          <h2>Recent Posts</h2>
           <ol>
-            {% for post in site.posts %}
-            <li><a href="{{ post.url }}">
-              {% if post.truncated_title %}
-                {{ post.truncated_title }}
-              {% else %}
-                {{ post.title }}
-              {% endif %}
-            </a></li>
-            {% endfor %}
+          {% for p in site.posts limit:10 %}
+            <li><a href="{{ post.url }}">{{ p | short_title }}</a></li>
+          {% endfor %}
           </ol>
+          <h2>Tags</h2>
+          <ul class="tag-cloud">
+            {% for tag in site.taggings %}
+            <li class="tagging"
+              data-posts="{{ tag.posts.size }}">
+              <a href="{{ tag.url }}"
+                title="{{ tag.description }}">{{ tag.name }}</a>
+            </li>
+            {% endfor %}
+          </ul>
         </nav>
       </header>
     

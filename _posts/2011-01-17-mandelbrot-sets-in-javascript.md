@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Mandelbrot Sets in Javascript
+tags: js fractals mandelbrot html5
 ---
 I'm a big fan of fractals.  From
 [Lindenmayer Systems](http://en.wikipedia.org/wiki/L-system) to variations on

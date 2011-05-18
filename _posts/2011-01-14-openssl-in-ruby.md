@@ -1,6 +1,7 @@
 ---
 layout: post
 title: OpenSSL in Ruby
+tags: openssl ruby code
 ---
 The following code assumes that there is a subdirectory named `certs`
 containing known certificates in PEM format, and a subdir `keys`

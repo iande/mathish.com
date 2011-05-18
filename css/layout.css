@@ -127,7 +127,39 @@ em {
 .behold > section > article > section > .highlight {
   margin: 1em 0;
 }
-.behold > section > article .pub-line {
+.behold > section > article > footer {
+  margin-top: 16px;
+}
+.behold > section > article > footer > nav.taggings {
+  color: #888;
+  float: left;
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+}
+.behold > section > article > footer > nav.taggings > h3 {
+  display: inline;
+  font-family: "Helvetica Neue", helvetica, verdana, sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  margin: 0 ! important;
+  padding: 0 ! important;
+}
+.behold > section > article > footer > nav.taggings > ul {
+  display: inline;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 1;
+  list-style: none;
+  margin: 0 ! important;
+  padding: 0 ! important;
+}
+.behold > section > article > footer > nav.taggings > ul > li {
+  display: inline;
+  margin: 0 1px 0 1px ! important;
+  padding: 0 ! important;
+}
+.behold > section > article > footer > .pub-line {
   color: #888;
   font-size: 12px;
   text-align: right;
@@ -140,7 +172,9 @@ em {
   color: #00a0a7;
   text-decoration: underline;
 }
-.behold > section h2 > a:link, .behold > section h2 > a:visited, a:link, a:visited {
+.behold > section h2 > a:link, .behold > section h2 > a:visited,
+a:link, a:visited,
+article.summary a.summary-link:link, article.summary a.summary-link:visited {
   color: #a93632;
   text-decoration: none;
 }
@@ -206,4 +240,19 @@ em {
 }
 #about-face.face-3 {
   background-position: 232px 0;
+}
+.tag-cloud {
+  line-height: 1;
+  list-style: none;
+}
+.tag-cloud > li {
+  display: inline;
+}
+.tag-cloud > li.smaller {
+}
+.tag-cloud > li.small {
+}
+.tag-cloud > li.large {
+}
+.tag-cloud > li.larger {
 }

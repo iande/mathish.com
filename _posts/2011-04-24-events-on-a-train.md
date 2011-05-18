@@ -1,7 +1,8 @@
 ---
 layout: post
 title: Events on a Train, Seeking a Ruby 1.9 World
-truncated_title: OnStomp Event Thread
+short_title: OnStomp Event Thread
+tags: onstomp rubygems ruby
 ---
 So, true to my nature of nothing ever being quite "good enough" I'm already
 looking to add new features to [OnStomp](http://mdvlrb.com/onstomp/) as well

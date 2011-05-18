@@ -1,7 +1,8 @@
 ---
 layout: post
 title: A Thought on Books in the Cloud
-truncated_title: Books in the Cloud
+short_title: Books in the Cloud
+tags: cloud thoughts
 ---
 ### Background
 

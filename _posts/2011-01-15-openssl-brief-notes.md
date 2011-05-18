@@ -1,6 +1,7 @@
 ---
 layout: post
 title: OpenSSL - Brief Notes
+tags: openssl ruby code
 ---
 When setting up OpenSSL validation in Ruby, I ran into a few issues.  I'll
 revisit this post later, but for my own memory, here's the big one:

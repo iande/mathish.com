@@ -1,19 +1,32 @@
 ---
 layout: default
-title: Home
+title: All Posts
 ---
-{% for post in site.posts limit:5 %}
-  <article>
+{% for post in site.posts %}
+  <article class="summary">
     <header>
       <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
     </header>
     <section>
-      {{ post.content }}
+      {{ post | summarize }}
     </section>
     <footer>
+      <nav class="taggings">
+        <h3>Tagged</h3>
+        <ul>
+        {% for tag in post.taggings %}
+          <li class="tagging"
+            data-posts="{{ tag.posts.size }}">
+            <a href="{{ tag.url }}"
+              title="{{ tag.description }}">{{ tag.name }}</a>
+          </li>
+        {% endfor %}
+        </ul>
+      </nav>
       <p class="pub-line">
+        <a href="{{ post.url }}" class="summary-link">Read On</a>
         Published <time datetime="{{ post.date }}">{{ post.date | date_to_string }}</time> &mdash;
-        <a href="{{ post.url }}#disqus_thread" data-disqus-identifier="{{ post.url }}">Comments</a>
+        <a href="{{ post.url }}#disqus_thread" data-disqus-identifier="{{ post.url }}">0 Comments</a>
       </p>
     </footer>
   </article>
