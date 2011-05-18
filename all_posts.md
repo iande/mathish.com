@@ -15,8 +15,7 @@ title: All Posts
         <h3>Tagged</h3>
         <ul>
         {% for tag in post.taggings %}
-          <li class="tagging"
-            data-posts="{{ tag.posts.size }}">
+          <li class="tagging">
             <a href="{{ tag.url }}"
               title="{{ tag.description }}">{{ tag.name }}</a>
           </li>
@@ -24,7 +23,6 @@ title: All Posts
         </ul>
       </nav>
       <p class="pub-line">
-        <a href="{{ post.url }}" class="summary-link">Read On</a>
         Published <time datetime="{{ post.date }}">{{ post.date | date_to_string }}</time> &mdash;
         <a href="{{ post.url }}#disqus_thread" data-disqus-identifier="{{ post.url }}">0 Comments</a>
       </p>

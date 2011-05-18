@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Helpful Steps to Eat an Evening
-tags: rubygems rvm ruby ubuntu
+tags: rubygems rvm ruby ubuntu notes
 ---
 Why spend our free time doing things we enjoy when it could be better spent
 fighting with calculating machines?

@@ -32,8 +32,7 @@
           <h2>Tags</h2>
           <ul class="tag-cloud">
             {% for tag in site.taggings %}
-            <li class="tagging"
-              data-posts="{{ tag.posts.size }}">
+            <li class="tagging {{ tag.bucket }}">
               <a href="{{ tag.url }}"
                 title="{{ tag.description }}">{{ tag.name }}</a>
             </li>

@@ -2,7 +2,11 @@
 layout: post
 title: "Properties of Code: Functional Complexity"
 short_title: Properties of Code - Part 1
-tags: theory complexity
+tags:
+  - properties of code
+  - complexity
+  - thoughts
+  - code
 ---
 About a year ago, I began giving some serious thought to an article named
 [Functional Complexity Modulo a Test Suite](https://github.com/raganwald/homoiconic/blob/master/2009-06-02/functional_complexity.md)

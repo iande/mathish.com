@@ -13,8 +13,7 @@ layout: default
       <h3>Tagged with</h3>
       <ul>
       {% for tag in page.taggings %}
-        <li class="tagging"
-          data-posts="{{ tag.posts.size }}">
+        <li class="tagging">
           <a href="{{ tag.url }}"
             title="{{ tag.description }}">{{ tag.name }}</a>
         </li>

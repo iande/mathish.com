@@ -249,14 +249,10 @@ article.summary a.summary-link:link, article.summary a.summary-link:visited {
   line-height: 1;
   list-style: none;
 }
-.tag-cloud > li {
-  display: inline;
-}
-.tag-cloud > li.smaller {
-}
-.tag-cloud > li.small {
-}
-.tag-cloud > li.large {
-}
-.tag-cloud > li.larger {
-}
+.tag-cloud > li { display: inline; }
+.tag-cloud > li.fewest { font-size: 10px; }
+.tag-cloud > li.fewer { font-size: 12px; }
+.tag-cloud > li.average { font-size: 14px; }
+.tag-cloud > li.more { font-size: 16px; }
+.tag-cloud > li.most { font-size: 18px; }
+li.tagging.active { font-weight: bold; }

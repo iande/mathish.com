@@ -2,7 +2,11 @@
 layout: post
 title: "Properties of Code: Readability"
 short_title: Properties of Code - Part 2
-tags: complexity theory
+tags:
+  - properties of code
+  - readability
+  - thoughts
+  - code
 ---
 *Important Note*: What you see here is essentially a rough outline.  I have
 been mulling over these thoughts for a few days and made more than one attempt

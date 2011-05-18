@@ -24,9 +24,9 @@ module Jekyll
   end
   
   class Tagging
-    attr_accessor :posts, :description, :name, :url, :filename
+    attr_accessor :posts, :description, :name, :url, :filename, :bucket
     
-    def initialize dir, tag, posts
+    def initialize dir, tag, posts, min, max
       @raw_name = tag
       @posts = posts.sort { |a,b| b <=> a }
       @name = CGI.escapeHTML(@raw_name)
@@ -34,6 +34,7 @@ module Jekyll
       @description = "#{@posts.size} articles have been tagged '#{@name}'"
       @filename = "#{@file}.html"
       @url = "/#{dir}/#{@filename}"
+      @bucket = calculate_bucket min, max
     end
     
     def <=> other
@@ -41,9 +42,27 @@ module Jekyll
     end
     
     def to_liquid
-      [:name, :posts, :description, :url].inject({}) do |liq, prop|
+      [:name, :posts, :description, :url, :bucket].inject({}) do |liq, prop|
         liq[prop.to_s] = __send__ prop
         liq
+      end
+    end
+    
+    def calculate_bucket min, max
+      # 5 buckets: fewest, fewer, avg, more, most
+      range = max - min
+      slot = (100 * (@posts.size - min)) / max
+      case slot
+      when  0...20
+        'fewest'
+      when 20...40
+        'fewer'
+      when 40...60
+        'average'
+      when 60...80
+        'more'
+      else
+        'most'
       end
     end
     
@@ -86,8 +105,9 @@ module Jekyll
     def generate site
       if site.layouts.key? 'tag_index'
         dir = site.config['tag_dir'] || 'tags'
+        min, max = site.tags.map { |t,p| p.size }.minmax
         site.taggings = site.tags.map do |tag, posts|
-          Tagging.new dir, tag, posts
+          Tagging.new dir, tag, posts, min, max
         end.sort
         site.taggings.each do |tag|
           write_tag_index(site, dir, tag)

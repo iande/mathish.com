@@ -1,16 +1,25 @@
 ---
 layout: default
 ---
-  <h2>Tagged: {{ page.tag.name }}</h2>
 {% for post in page.tag.posts %}
-  <article>
+  <article class="summary">
     <header>
       <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
     </header>
     <section>
-      {{ post.content }}
+      {{ post | summarize }}
     </section>
     <footer>
+      <nav class="taggings">
+        <h3>Tagged</h3>
+        <ul>
+        {% for tag in post.taggings %}
+          <li class="tagging {% if page.tag == tag %}active{% endif %}">
+            <a href="{{ tag.url }}" title="{{ tag.description }}">{{ tag.name }}</a>
+          </li>
+        {% endfor %}
+        </ul>
+      </nav>
       <p class="pub-line">
         Published <time datetime="{{ post.date }}">{{ post.date | date_to_string }}</time> &mdash;
         <a href="{{ post.url }}#disqus_thread" data-disqus-identifier="{{ post.url }}">Comments</a>
