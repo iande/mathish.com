@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Properties of Code: Challenges of Readability
+title: "Properties of Code: Challenges of Readability"
 short_title: Properties of Code - Part 2
 tags:
   - thoughts
