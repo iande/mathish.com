@@ -46,8 +46,8 @@ completely unfounded at this time:
 2. The link between a "readable" story and "readable" code is probably
    stronger, but the two are not equivalent.
 3. The visualization of quantitative data has implications in readability of
-   code, and potentially the readability of language.
-4. Code produce two products: a solution to some problem to be consumed by
+   code, and potentially the readability of programming languages.
+4. Code produces two products: a solution to some problem to be consumed by
    users, and the code itself, to be consumed by developers.  Writing code
    that only solves the problem is a partial victory.
 
