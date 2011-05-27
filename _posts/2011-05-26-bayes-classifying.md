@@ -5,6 +5,8 @@ tags: code math ir
 published: true
 ---
 
+### The Overview
+
 So, as everyone knows by now, [Bayes' Theorem](http://en.wikipedia.org/wiki/Bayes'_theorem)
 is expressed as:
 
@@ -22,6 +24,8 @@ page.  The idea is to classify a bunch of documents by hand to "train" our
 classifier so that when new documents come along, we can ask the classifier
 where they belong.  One way to accomplish this is through the use of Bayes'
 theorem.
+
+### The Real Work
 
 To start, we'll need a way to tokenize a document into <dfn>terms</dfn>.  The
 tokenizer's implementation will depend upon the type of documents under
@@ -262,6 +266,56 @@ in {% m %}[0, 1]{% em %}, all of our logarithm values will be in the range
 {% m %}(-\infty, 0]{% em %}.  This means that the most likely category will
 be the one with a value closest to 0.
 
+### Digging Deeper
+
+There are a few edge cases to consider, here are five I can think of off of
+the top of my head:
+
+1. What if there are no known terms for a particular category?
+2. What if there are no known terms for the classifier as a whole?
+3. What if a term is unknown to a particular category?
+4. What if a term is unknown to the classifier as a whole?
+5. How do we handle repeated terms (i.e. {% m %}T_i = T_j{% em %}) in a
+   document that our classifier is attempting to classify for us?
+
+We can easily address the first two cases.  If any category has not been trained, we
+assume {% m %}P(C | T_1,\ldots,T_n) = 0{% em %}, thus if none of our
+categories have been trained (case #2), we assume all categories are equally
+likely (or unlikely) and either return an arbitrary one or none at all.
+The third and fourth cases are consequences of the fact that we are
+estimating probabilities.  Through training, our classifier is building
+approximations for these various probabilities through sampling.  It is
+entirely possible, perhaps even very likely, that we will encounter documents
+we wish to classify containing terms that were not included in our training.
+If we rely solely on the calculations presented here, a foreign term will
+result in zeroing the overall probability or produce an error &mdash;
+either from a division by zero or from the undefined {% m %}\log(0){% em %}
+calculation.  To prevent garbage results, we will need to assign a non-zero
+probability, {% m %}\epsilon{% em %}, to terms unknown to a particular
+category.
+
+The fifth case deserves its own paragraph.  To handle this situation, we
+defer to simple rules for conditional probabilities.  Consider the following:
+
+{% math %}
+  P(A | B, C, D) = P(A | B \cap C \cap D)
+{% endmath %}
+
+If {% m %}B{% em %} and {% m %}C{% em %} are describing the same event, then
+the expression simplifies to:
+
+{% math %}
+  P(A | B \cap D)
+{% endmath %}
+
+The same holds true for documents we wish to *classify*.  We could argue that
+repeated terms do not describe the same event because the terms are occurring
+in distinct positions; however, we have not worked positional information into
+our classifier.  It is important to note that when we are *training* our
+classifier with documents, we do take repeated terms into consideration.
+
+### Final Business
+
 Now that virtually every email client has, at one point or another, made
 use of some form of Naive Bayes classification, I realize it's no longer
 the hot topic it once was.  However, while reviewing the Ruby
@@ -270,7 +324,8 @@ Bayes implementation was wrong.  This was independently confirmed by
 [Brian Muller](https://github.com/bmuller).  While working on a fork of it
 with [Zeke](https://github.com/ezkl), I discovered that while the approach is
 well known, there are nuances that can significantly impact the results
-&mdash; one example being the choice in {% m %}P(C){% em %}.
+&mdash; examples being the choice in {% m %}P(C){% em %} and the default
+probability, {% m %}\epsilon{% em %}.
 
 ### Foot Noted
 
