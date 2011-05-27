@@ -2,7 +2,7 @@
 layout: post
 title: Bayesian Classification
 tags: code, math
-published: false
+published: true
 ---
 
 So, as everyone knows by now, [Bayes' Theorem](http://en.wikipedia.org/wiki/Bayes'_theorem)
@@ -196,3 +196,25 @@ but that is largely a result of each expression being explicitly defined. Now
 that we know what the expressions mean, let's do an informal clean up of
 this warlock.
 
+Let's let {% m %}\upsilon_y{% em %} represent the number of distinct terms
+in category {% m %}C_y{% em %} and {% m %}\upsilon_*{% em %} represent the total
+number of distinct terms.  Further, let's say that {% m %}\tau_{x,y}{% em %}
+is the number of times term {% m %}T_x{% em %} occurs in category
+{% m %}C_y{% em %}; {% m %}\tau_{x,*}{% em %} is the number of times term
+{% m %}T_x{% em %} occurs in all categories; {% m %}\tau_{*,y}{% em %} is
+the total number of occurrences of all terms in category {% m %}C_y{% em %};
+and {% m %}\tau_{*,*}{% em %} is the total number of occurrences of all terms in
+all categories.  We then have:
+
+{% math %}
+\begin{aligned}
+  P(C_m\mid T_1, \ldots, T_n) &= \frac{\upsilon_m}{\upsilon_*} \left ( \prod_{i=1}^n
+    \frac{\frac{\tau_{i,m}}{\tau_{*,m}}}{\frac{\tau_{i,*}}{\tau_{*,*}}}
+    \right ) \\
+  &= \frac{\upsilon_m}{\upsilon_*} \left ( \prod_{i=1}^n
+    \frac{\tau_{*,*} \tau_{i,m}}{\tau_{*,m} \tau_{i,*}}
+    \right ) \\
+  &= \frac{\upsilon_m \tau_{*,*}^n}{\upsilon_* \tau_{*,m}^n}
+    \prod_{i=1}^n \frac{\tau_{i,m}}{\tau_{i,*}}
+\end{aligned}
+{% endmath %}
