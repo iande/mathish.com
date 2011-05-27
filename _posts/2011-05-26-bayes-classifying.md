@@ -5,6 +5,12 @@ tags: code math ir
 published: true
 ---
 
+### A Brief Distraction
+
+After using the classifier I originally laid out in this post, I
+discovered that my method of calculating {% m %}P(D){% em %} was very flawed.
+I have made the appropriate revisions.
+
 ### The Overview
 
 So, as everyone knows by now, [Bayes' Theorem](http://en.wikipedia.org/wiki/Bayes'_theorem)
@@ -37,17 +43,25 @@ So, what we're then after is the probability that a document belongs
 in a particular category, {% m %}C_m{% em %}, given these extracted terms:
 
 {% math %}
-  P(C_m \mid T_1, T_2, \ldots, T_n) = \frac{P(C_m) P(T_1, T_2, \ldots, T_n \mid C_m)}{P(T_1, T_2, \ldots, T_n)}
+\begin{aligned}
+  P(C_m \mid D) &= \frac{P(C_m) P(D \mid C_m)}{P(D)} \\
+  P(C_m \mid T_1,\ldots,T_n) &= \frac{P(C_m) P(T_1,\ldots,T_n \mid C_m)}{P(D)}
+\end{aligned}
 {% endmath %}
+
+We're letting {% m %}D{% em %} represent our <dfn>document</dfn>, and then
+expanding the document into its individual terms, {% m %}T_1,\ldots,T_n{% em %}.
+You'll notice that we've skipped the expansion of {% m %}P(D){% em %}, the
+justification for this will be explained shortly.
 
 We can expand this using the rules of conditional probability:
 
 {% math %}
 \begin{aligned}
-  P(C_m \mid T_1, \ldots, T_n) &= \frac{P(C_m) P(T_1, \ldots, T_n \mid C_m)}{P(T_1, \ldots, T_n)} \\
-   &= \frac{P(C_m) P(T_1 \mid C_m) P(T_2, \ldots, T_n \mid C, T_1)}{P(T_1, \ldots, T_n)} \\
-   &= \frac{P(C_m) P(T_1 \mid C_m) P(T_2 \mid C, T_1) P(T_3, \ldots, T_n \mid C, T_1, T_2)}{P(T_1, \ldots, T_n)} \\
-   &= \frac{P(C_m) P(T_1 \mid C_m) P(T_2 \mid C, T_1) \ldots P(T_n \mid C, T_1, \ldots, T_{n-1})}{P(T_1, \ldots, T_n)}
+  P(C_m \mid T_1, \ldots, T_n) &= \frac{P(C_m) P(T_1, \ldots, T_n \mid C_m)}{P(D)} \\
+   &= \frac{P(C_m) P(T_1 \mid C_m) P(T_2, \ldots, T_n \mid C, T_1)}{P(D)} \\
+   &= \frac{P(C_m) P(T_1 \mid C_m) P(T_2 \mid C, T_1) P(T_3, \ldots, T_n \mid C, T_1, T_2)}{P(D)} \\
+   &= \frac{P(C_m) P(T_1 \mid C_m) P(T_2 \mid C, T_1) \ldots P(T_n \mid C, T_1, \ldots, T_{n-1})}{P(D)}
 \end{aligned}
 {% endmath %}
 
@@ -67,33 +81,23 @@ the naive assumption for now, which simplifies our equation:
 {% math %}
 \begin{aligned}
     P(C_m \mid T_1, \ldots, T_n) &= \frac{P(C_m) P(T_1 \mid C_m) P(T_2 \mid C_m)
-      \ldots P(T_n \mid C_m)}{P(T_1, \ldots, T_n)} \\
-    &= P(C_m) \prod_{i=1}^n \frac{P(T_i \mid C_m)}{P(T_i)}
+      \ldots P(T_n \mid C_m)}{P(D)} \\
+    &= \frac{P(C_m)}{P(D)} \prod_{i=1}^n P(T_i \mid C_m)
 \end{aligned}
 {% endmath %}
 
 For any term, {% m %}T_i{% em %}, we take {% m %}P(T_i \mid C_m){% em %} to
 mean the probability of that term occurring given we're working with
-category {% m %}C{% em %}, and we calculate it thusly:
+category {% m %}C_m{% em %}, and we calculate it thusly:
 
 {% math %}
   P(T_i \mid C_m) = \frac{t(T_i, C_m)}{\sum_k t(T_k,C_m)}
 {% endmath %}
 
 where {% m %}t(x, y){% em %} is the number of times term {% m %}x{% em %}
-occurs in category {% m %}y{% em %}.  Next, we tackle {% m %}P(T_i){% em %}
-which we take to mean the probability of term {% m %}T_i{% em %} to occur in
-general:
-
-{% math %}
-  P(T_i) = \frac{\sum_j t(T_i, C_j)}{\sum_j \sum_k t(T_k, C_j)}
-{% endmath %}
-
-In other words, we are taking all occurrences of {% m %}T_i{% em %} across
-all categories and dividing it by all occurrences of all terms across all
-categories.  This brings us, finally, to {% m %}P(C_m){% em %}, meaning the
-probability of choosing category {% m %}C{% em %} without taking the terms
-into consideration.  There are a couple ways we could
+occurs in category {% m %}y{% em %}.  This brings us to {% m %}P(C_m){% em %},
+meaning the probability of choosing category {% m %}C{% em %} without taking
+the document into consideration.  There are a number of ways we could
 calculate {% m %}P(C_m){% em %}, such as assuming that all categories are
 equally likely:
 
@@ -188,40 +192,57 @@ With that all taken care of, we can now expand our classifier to:
 
 {% math %}
 \begin{aligned}
-  P(C_m \mid T_1, \ldots, T_n) &= P(C_m) \prod_{i=1}^n \frac{P(T_i \mid C_m)}{P(T_i)} \\
-  &= \frac{\sum_k u(T_k, C_m)}{\sum_k u^*(T_k)} \left ( \prod_{i=1}^n
-    \frac{\frac{t(T_i, C_m)}{\sum_k t(T_k,C_m)}}{\frac{\sum_j t(T_i, C_j)}{\sum_j \sum_k t(T_k, C_j)}}
-    \right )
+  P(C_m \mid T_1, \ldots, T_n) &= \frac{P(C_m)}{P(D)} \prod_{i=1}^n P(T_i \mid C_m) \\
+  &= \frac{\sum_k u(T_k, C_m)}{P(D) \sum_k u^*(T_k)} \left ( \prod_{i=1}^n
+    \frac{t(T_i, C_m)}{\sum_k t(T_k,C_m)} \right )
 \end{aligned}
 {% endmath %}
 
 Our problem is now just one of counting.  The expression may look horrible,
 but that is largely a result of each expression being explicitly defined. Now
 that we know what the expressions mean, let's do an informal clean up of
-this warlock.
+this warlock by substituting simpler symbols for our sweet mess of expressions.
+Before we do, we need to take a closer look at {% m %}P(D){% em %}, which in
+earlier revisions of this post was explicitly, and incorrectly, defined.
+For a given document, {% m %}P(D){% em %} will be the same, regardless of the
+category under consideration.  When our classifier is asked to classify a
+document, it will iterate over each of its categories and perform this
+calculation, which each of the final category probabilities will be scaled
+by this same term.  So, our first simplification will be to substitute
+{% m %}P(D){% em %} with {% m %}\delta{% em %}, which we will not
+explicitly define as we will eventually discard it.
 
-Let's let {% m %}\upsilon_y{% em %} represent the number of distinct terms
-in category {% m %}C_y{% em %} and {% m %}\upsilon_*{% em %} represent the total
-number of distinct terms.  Further, let's say that {% m %}\tau_{x,y}{% em %}
-is the number of times term {% m %}T_x{% em %} occurs in category
-{% m %}C_y{% em %}; {% m %}\tau_{x,*}{% em %} is the number of times term
-{% m %}T_x{% em %} occurs in all categories; {% m %}\tau_{*,y}{% em %} is
-the total number of occurrences of all terms in category {% m %}C_y{% em %};
-and {% m %}\tau_{*,*}{% em %} is the total number of occurrences of all terms in
-all categories.  We then have:
+Now, let's let {% m %}\upsilon{% em %} be the number of unique terms in the
+category we are considering and {% m %}\Upsilon{% em %} be the number of
+unique terms in all of our categories.  Finally, we let {% m %}g(T_i){% em %}
+be the number of occurrences of term {% m %}T_i{% em %} in the current
+category and {% m %}G{% em %} be the occurrences of all terms in all of our
+categories.  With these simplifications, our equation becomes:
 
 {% math %}
 \begin{aligned}
-  P(C_m \mid T_1, \ldots, T_n) &= \frac{\upsilon_m}{\upsilon_*} \left ( \prod_{i=1}^n
-    \frac{\frac{\tau_{i,m}}{\tau_{*,m}}}{\frac{\tau_{i,*}}{\tau_{*,*}}}
-    \right ) \\
-  &= \frac{\upsilon_m}{\upsilon_*} \left ( \prod_{i=1}^n
-    \frac{\tau_{*,*} \tau_{i,m}}{\tau_{*,m} \tau_{i,*}}
-    \right ) \\
-  &= \frac{\upsilon_m \tau_{*,*}^n}{\upsilon_* \tau_{*,m}^n}
-    \prod_{i=1}^n \frac{\tau_{i,m}}{\tau_{i,*}}
+  P(C_m \mid T_1,\ldots,T_n) &= \frac{\upsilon}{\delta \Upsilon}
+    \prod_{i=1}^n \frac{g(T_i)}{G} \\
+  &= \frac{\upsilon}{\delta \Upsilon G^n} \prod_{i=1}^n g(T_i) \\
+  &= \frac{1}{\delta} \frac{\upsilon}{\Upsilon G^n} \prod_{i=1}^n g(T_i) \\
+  \delta P(C_m \mid T_1,\ldots,T_n) &=  \frac{\upsilon}{\Upsilon G^n}
+    \prod_{i=1}^n g(T_i)
 \end{aligned}
 {% endmath %}
+
+Hopefully it is now painfully obvious that each category will be scaled
+by a common factor, namely {% m %}\frac{1}{\delta}{% em %}.  The purpose
+of our classifier is to pick the category a given document most likely
+belongs in, and if they are all scaled by this common term we can disregard
+it.  In an effort to preserve mathematical accuracy, I have opted to multiply
+both sides of the equation by {% m %}\delta{% em %}.
+
+All we've gained from this simplification is some mental manageability.  I
+wanted to derive the explicit calculations involved in Bayesian
+classification, but products of fractions containing summations don't tend
+to be very memorable.  Any additional calculations we may need to perform
+on the explicit form would have made things even messier, which serves
+as a nice segue into our next step.
 
 In a world where we are free to perform these calculations without loss of
 precision, this expression is just fine.  However, given that we are
@@ -232,39 +253,31 @@ can correct this with a little help from a
 
 {% math %}
 \begin{aligned}
-  \log P(C_m \mid T_1, \ldots, T_n) &= \log \left (
-    \frac{\upsilon_m \tau_{*,*}^n}{\upsilon_* \tau_{*,m}^n}
-    \prod_{i=1}^n \frac{\tau_{i,m}}{\tau_{i,*}}
-    \right ) \\
-  &= \log \left ( \frac{\upsilon_m}{\upsilon_*} \right ) +
-    n \log \left (  \frac{\tau_{*,*}}{\tau_{*,m}} \right ) +
-    \sum_{i=1}^n \log \left ( \frac{\tau_{i,m}}{\tau_{i,*}} \right )
+  \log \left( \delta P(C_m \mid T_1,\ldots,T_n) \right) &= \log \left (
+    \frac{\upsilon}{\Upsilon G^n} \prod_{i=1}^n g(T_i)
+    \right) \\
+  \log \delta + \log P(C_m \mid T_1,\ldots,T_n) &=
+    \log \left( \frac{\upsilon}{\Upsilon G^n} \right) +
+    \log \left( \prod_{i=1}^n g(T_i) \right) \\
+  &= \log \left( \frac{\upsilon}{\Upsilon} \right) - n \log G +
+    \sum_{i=1}^n \log \left( g(T_i) \right)
 \end{aligned}
 {% endmath %}
 
-We might have good reason to expand this a bit further.  For example,
-it may behoove us to expand
-{% m %}\log \left ( \frac{\upsilon_m}{\upsilon_*} \right ){% em %} into
-{% m %}\left( \log \upsilon_m - \log \upsilon_* \right){% em %}, since 
-both {% m %}\upsilon_m{% em %} and {% m %}\upsilon_*{% em %} will be constant
-when classifying a given document against a given category.  I will leave
-the last expression unexpanded for two reasons:
+Is this logarithm business really necessary?  Consider a document with
+324 unique terms where, thanks the awesome power of contrived examples,
+{% m %}\frac{g(T_i)}{G} = 0.1{% em %} for each term.  When we take the
+product of all these terms, we end up with {% m %}0.1^{324}{% em %}.  That's
+a pretty small number, so small that Ruby mistakes it for 0:
 
-1. Computing {% m %}\log x{% em %} is probably more computationally expensive
-   than multiplying and dividing floating point numbers, so you'll want to use
-   as few logarithm calls as possible.
-2. Given this site's current layout, expanding all of the expressions results
-   in text overflowing the bounds.  MathJax, rightfully mind you, does not
-   wrap mathematical expressions.   
+{% highlight ruby %}
+0.1 ** 324 # => 0.0
+{% endhighlight %}
 
-Now, if we needed to get the actual probability, we would then
-apply {% m %}\exp(x){% em %} to both sides of the equation.  However, when we
-are classifying we are generally only looking for the most likely category
-that a document should belong to.  As a result, we can skip the exponentiation
-so long as we keep one important fact in mind:  as each of our quotients are
-in {% m %}[0, 1]{% em %}, all of our logarithm values will be in the range
-{% m %}(-\infty, 0]{% em %}.  This means that the most likely category will
-be the one with a value closest to 0.
+Now, we did factor {% m %}\frac{1}{G^n}{% em %} out of our product earlier, but
+{% m %}\frac{1}{G^{324}}{% em %} is also bound to be very small.  This
+post alone is up to 608 unique terms, just to give an example of how likely
+it is that our classifier might experience floating-point underflow.
 
 ### Digging Deeper
 
