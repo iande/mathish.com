@@ -184,7 +184,7 @@ With that all taken care of, we can now expand our classifier to:
 
 {% math %}
 \begin{aligned}
-  P(C_m\mid T_1, \ldots, T_n) &= P(C_m) \prod_{i=1}^n \frac{P(T_i \mid C_m)}{P(T_i)} \\
+  P(C_m \mid T_1, \ldots, T_n) &= P(C_m) \prod_{i=1}^n \frac{P(T_i \mid C_m)}{P(T_i)} \\
   &= \frac{\sum_k u(T_k, C_m)}{\sum_k u^*(T_k)} \left ( \prod_{i=1}^n
     \frac{\frac{t(T_i, C_m)}{\sum_k t(T_k,C_m)}}{\frac{\sum_j t(T_i, C_j)}{\sum_j \sum_k t(T_k, C_j)}}
     \right )
@@ -208,7 +208,7 @@ all categories.  We then have:
 
 {% math %}
 \begin{aligned}
-  P(C_m\mid T_1, \ldots, T_n) &= \frac{\upsilon_m}{\upsilon_*} \left ( \prod_{i=1}^n
+  P(C_m \mid T_1, \ldots, T_n) &= \frac{\upsilon_m}{\upsilon_*} \left ( \prod_{i=1}^n
     \frac{\frac{\tau_{i,m}}{\tau_{*,m}}}{\frac{\tau_{i,*}}{\tau_{*,*}}}
     \right ) \\
   &= \frac{\upsilon_m}{\upsilon_*} \left ( \prod_{i=1}^n
@@ -218,3 +218,68 @@ all categories.  We then have:
     \prod_{i=1}^n \frac{\tau_{i,m}}{\tau_{i,*}}
 \end{aligned}
 {% endmath %}
+
+In a world where we are free to perform these calculations without loss of
+precision, this expression is just fine.  However, given that we are
+multiplying a series of numbers all in the range {% m %}[0, 1]{% em %}, a
+computer may eventually round a product to 0, and totally ruin our day.  We
+can correct this with a little help from a
+<a href="#note-logarithms" id="ref-logarithms">logarithm*</a>:
+
+{% math %}
+\begin{aligned}
+  \log P(C_m \mid T_1, \ldots, T_n) &= \log \left (
+    \frac{\upsilon_m \tau_{*,*}^n}{\upsilon_* \tau_{*,m}^n}
+    \prod_{i=1}^n \frac{\tau_{i,m}}{\tau_{i,*}}
+    \right ) \\
+  &= \log \left ( \frac{\upsilon_m}{\upsilon_*} \right ) +
+    n \log \left (  \frac{\tau_{*,*}}{\tau_{*,m}} \right ) +
+    \sum_{i=1}^n \log \left ( \frac{\tau_{i,m}}{\tau_{i,*}} \right )
+\end{aligned}
+{% endmath %}
+
+We might have good reason to expand this a bit further.  For example,
+it may behoove us to expand
+{% m %}\log \left ( \frac{\upsilon_m}{\upsilon_*} \right ){% em %} into
+{% m %}\left( \log \upsilon_m - \log \upsilon_* \right){% em %}, since 
+both {% m %}\upsilon_m{% em %} and {% m %}\upsilon_*{% em %} will be constant
+when classifying a given document against a given category.  I will leave
+the last expression unexpanded for two reasons:
+
+1. Computing {% m %}\log x{% em %} is probably more computationally expensive
+   than multiplying and dividing floating point numbers, so you'll want to use
+   as few logarithm calls as possible.
+2. Given this site's current layout, expanding all of the expressions results
+   in text overflowing the bounds.  MathJax, rightfully mind you, does not
+   wrap mathematical expressions.   
+
+Now, if we needed to get the actual probability, we would then
+apply {% m %}\exp(x){% em %} to both sides of the equation.  However, when we
+are classifying we are generally only looking for the most likely category
+that a document should belong to.  As a result, we can skip the exponentiation
+so long as we keep one important fact in mind:  as each of our quotients are
+in {% m %}[0, 1]{% em %}, all of our logarithm values will be in the range
+{% m %}(-\infty, 0]{% em %}.  This means that the most likely category will
+be the one with a value closest to 0.
+
+Now that virtually every email client has, at one point or another, made
+use of some form of Naive Bayes classification, I realize it's no longer
+the hot topic it once was.  However, while reviewing the Ruby
+[classifier](https://rubygems.org/gems/classifier), I discovered that their
+Bayes implementation was wrong.  This was independently confirmed by
+[Brian Muller](https://github.com/bmuller).  While working on a fork of it
+with [Zeke](https://github.com/ezkl), I discovered that while the approach is
+well known, there are nuances that can significantly impact the results
+&mdash; one example being the choice in {% m %}P(C){% em %}.
+
+### Foot Noted
+
+#### Note: Logarithms
+
+I would like to thank [Brian Muller](https://github.com/bmuller) for
+explaining the use of logarithms in a
+[Naive Bayes classifier](https://github.com/livingsocial/ankusa/blob/master/lib/ankusa/naive_bayes.rb)
+he's developing in Ruby, even if we don't share the same views on
+{% m %}P(C){% em %}.  My Numerical Analysis professors would probably be
+displeased that I forgot about this trick.
+[jump back](#ref-logarithm)
