@@ -284,7 +284,7 @@ categories have been trained (case #2), we assume all categories are equally
 likely (or unlikely) and either return an arbitrary one or none at all.
 The third and fourth cases are consequences of the fact that we are
 estimating probabilities.  Through training, our classifier is building
-approximations for these various probabilities through sampling.  It is
+approximations for these various probabilities.  It is
 entirely possible, perhaps even very likely, that we will encounter documents
 we wish to classify containing terms that were not included in our training.
 If we rely solely on the calculations presented here, a foreign term will
@@ -337,4 +337,4 @@ explaining the use of logarithms in a
 he's developing in Ruby, even if we don't share the same views on
 {% m %}P(C){% em %}.  My Numerical Analysis professors would probably be
 displeased that I forgot about this trick.
-[jump back](#ref-logarithm)
+[ [jump back](#ref-logarithms) ]
