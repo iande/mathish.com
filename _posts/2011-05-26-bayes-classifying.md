@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Bayesian Classification
-tags: code, math
+tags: code math ir
 published: true
 ---
 
