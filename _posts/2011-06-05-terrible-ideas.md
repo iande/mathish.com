@@ -3,7 +3,7 @@ layout: post
 title: Terrible Ideas
 tags: code ruby rubygems
 ---
-While sitting lurking on the #ruby-lang channel on freenode.net, 
+While lurking on the #ruby-lang channel on freenode.net, 
 [oddmund](https://github.com/jraregris) suggested creating a `method_missing`
 handler that would "auto-correct" misspelled method.  His suggestion was of
 course a joke, but it was a pretty good one, so
