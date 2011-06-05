@@ -2,9 +2,7 @@
 layout: post
 title: Bayesian Classification
 tags: code math ir
-published: true
 ---
-
 ### A Brief Distraction
 
 After using the classifier I originally laid out in this post, I
