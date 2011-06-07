@@ -101,6 +101,7 @@ module Jekyll
   
   class TaggingGenerator < Generator
     safe true
+    priority :low
     
     def generate site
       if site.layouts.key? 'tag_index'
