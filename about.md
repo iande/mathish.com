@@ -1,29 +1,11 @@
 ---
 layout: page
-title: About Me
+title: About Mathish
 ---
-There's a high degree of probability that my name is Ian D. Eccles.
-Assuming that premise is true, here are a few facts about me.
+I've owned this domain &mdash; and a handful of others &mdash; for some time.
+For much of our time together, I've wielded it as a trivial function:
+{% m %}f : \emptyset \rightarrow \emptyset{% em %}.  While posts about programming
+may be indistinguishable from the absence of content for many of my friends,
+hopefully there's a few of you occasionally enjoying all of this.
 
-* I sing the body [Github](https://github.com/iande)
-  and contribute to [meadvillerb](https://github.com/meadvillerb)
-* I shoot [tweets](http://twitter.com/#!/ieccles) into the air
-* It's a good life with [ruby](http://www.ruby-lang.org/en/)
-  and [haskell](http://www.haskell.org/haskellwiki/Haskell)
-* Of late I think of [Robert Culp's hair](http://www.imdb.com/name/nm0191685/)
-  (circa 1970's)
-
-An additional piece of information has been encoded in the previous list.
-
-<div id="about-face" class="face-1">
-</div>
-
-<script type="text/javascript">
-  $(function() {
-    $('a').hover(function() {
-      var faceIdx = Math.floor(Math.random() * 3) + 1;
-      $('#about-face').removeClass("face-1 face-2 face-3").
-        addClass("face-" + faceIdx);
-    });
-  });
-</script>
+If you're interested in me, [here's my narcissistic offering](/ian.html).
