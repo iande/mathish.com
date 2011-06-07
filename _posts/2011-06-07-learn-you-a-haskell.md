@@ -29,3 +29,10 @@ however, I think the book would be just as engaging without these factors.
 So, if you're the kind of person who buys books based upon reviews that
 could have been written by an 11 year old, [pick up a copy](http://nostarch.com/lyah.htm)
 of *Learn You a Haskell for Great Good!* right now.
+Thank you, Miran Lipovača, for such a unique Haskell introduction.
+
+On the topic of books, but not directly related to *Learn You a Haskell*,
+if you want a great introduction to combinatory logic, grab a copy of
+[To Mock a Mockingbird](http://www.amazon.com/Mock-Mockingbird-Raymond-Smullyan/dp/0192801422/ref=sr_1_1?ie=UTF8&s=books&qid=1307464282&sr=8-1)
+by Raymond Smullyan.  It's entertaining, a fairly easy read and, unfortunately,
+out of print, so you'll probably have to buy it second hand.
