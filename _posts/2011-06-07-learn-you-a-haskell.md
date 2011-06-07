@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Learn You a Haskell
+title: Learn You a Haskell for Great Good
 tags: books code haskell thoughts
 ---
 To be completely honest, I'm not much of a reader.  My reading speed lies
