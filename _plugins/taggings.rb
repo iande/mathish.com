@@ -29,11 +29,11 @@ module Jekyll
     def initialize dir, tag, posts, min, max
       @raw_name = tag
       @posts = posts.sort { |a,b| b <=> a }
-      @name = CGI.escapeHTML(@raw_name)
-      @file = @raw_name.gsub(/\s/,'-').gsub(/[^\w-]/,'').downcase
+      @name = CGI.escapeHTML @raw_name
+      @file = @raw_name.gsub(/\s/,'-').downcase
       @description = "#{@posts.size} articles have been tagged '#{@name}'"
       @filename = "#{@file}.html"
-      @url = "/#{dir}/#{@filename}"
+      @url = URI.escape "/#{dir}/#{@filename}"
       @bucket = calculate_bucket min, max
     end
     
@@ -104,6 +104,7 @@ module Jekyll
     
     def generate site
       if site.layouts.key? 'tag_index'
+        puts "Generating tag index pages"
         dir = site.config['tag_dir'] || 'tags'
         min, max = site.tags.map { |t,p| p.size }.minmax
         site.taggings = site.tags.map do |tag, posts|
