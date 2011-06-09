@@ -1,0 +1,20 @@
+---
+layout: nil
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{% for post in site.posts %}
+  <url>
+    <loc>http://mathish.com{{ post.url }}</loc>
+    <lastmod>{{ post.mtime | date_to_sitemap }}</lastmod>
+  </url>{% endfor %}{% for page in site.pages %}
+  {% if page.url != '/sitemap.xml' %}<url>{% if page.url == '/index.html' %}
+    <loc>http://mathish.com/</loc>
+    <lastmod>{{ site.time | date_to_sitemap }}</lastmod>{% else %}
+    <loc>http://mathish.com{{ page.url }}</loc>
+    <lastmod>{{ page.mtime | date_to_sitemap }}</lastmod>{% endif %}
+  </url>{% endif %}{% endfor %}{% for tag in site.taggings %}
+  <url>
+    <loc>http://mathish.com{{ tag.url }}</loc>
+    <lastmod>{{ tag.mtime | date_to_sitemap }}</lastmod>
+  </url>{% endfor %}
+</urlset>

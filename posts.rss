@@ -1,0 +1,19 @@
+---
+layout: nil
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Mathish</title>
+    <link>http://www.mathish.com</link>
+    <description>The semi-math ramblings of Ian D. Eccles</description>
+    {% for post in site.posts %}
+    <item>
+      <title>{{ post.title | xml_escape }}</title>
+      <link>http://mathish.com{{ post.url }}</link>
+      <description>{{ post.content | scrub_mathjax | xml_escape }}</description>
+      <pubDate>{{ post.date | rss_date }}</pubDate>
+    </item>
+    {% endfor %}
+  </channel>
+</rss>

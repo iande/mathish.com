@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{% for node in page.nodes %}
-  <url>
-      <loc>{{ node.url }}</loc>
-      <lastmod>{{ node.last_modified }}</lastmod>
-  </url>{% endfor %}
-</urlset>

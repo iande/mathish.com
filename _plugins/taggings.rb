@@ -41,8 +41,12 @@ module Jekyll
       self.name <=> other.name
     end
     
+    def mtime
+      @posts.map { |p| p.date }.max
+    end
+    
     def to_liquid
-      [:name, :posts, :description, :url, :bucket].inject({}) do |liq, prop|
+      [:name, :posts, :description, :url, :bucket, :mtime].inject({}) do |liq, prop|
         liq[prop.to_s] = __send__ prop
         liq
       end
@@ -94,7 +98,6 @@ module Jekyll
       end
       render_without_posts layouts, payload
     end
-    
     alias :render_without_posts :render
     alias :render :render_with_posts
   end
