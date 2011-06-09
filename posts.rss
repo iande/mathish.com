@@ -2,8 +2,9 @@
 layout: nil
 ---
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
+    <atom:link href="http://mathish.com/posts.rss" rel="self" type="application/rss+xml"/>
     <title>Mathish</title>
     <link>http://www.mathish.com/</link>
     <description>The semi-math ramblings of Ian D. Eccles</description>
@@ -13,6 +14,7 @@ layout: nil
       <link>http://mathish.com{{ post.url }}</link>
       <description>{{ post.content | scrub_mathjax | xml_escape }}</description>
       <pubDate>{{ post.date | rss_date }}</pubDate>
+      <guid>http://mathish.com{{ post.url }}</guid>
     </item>
     {% endfor %}
   </channel>
