@@ -1,0 +1,12 @@
+---
+layout: nil
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{% for page in site.sitemap_pages %}
+  <url>{% if page.url == '/index.html' %}
+    <loc>http://mathish.com/</loc>
+    <lastmod>{{ site.time | date_to_sitemap }}</lastmod>{% else %}
+    <loc>http://mathish.com{{ page.url }}</loc>
+    <lastmod>{{ page.mtime | date_to_sitemap }}</lastmod>{% endif %}
+  </url>{% endfor %}
+</urlset>
