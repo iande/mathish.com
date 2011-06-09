@@ -7,7 +7,7 @@ layout: nil
  <link href="http://mathish.com/posts.xml" rel="self"/>
  <link href="http://mathish.com"/>
  <updated>{{ site.time | date_to_xmlschema }}</updated>
- <id>http://mathish.com</id>
+ <id>http://mathish.com/</id>
  <author><name>Ian D. Eccles</name></author>
  {% for post in site.posts %}
  <entry>

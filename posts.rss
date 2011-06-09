@@ -5,7 +5,7 @@ layout: nil
 <rss version="2.0">
   <channel>
     <title>Mathish</title>
-    <link>http://www.mathish.com</link>
+    <link>http://www.mathish.com/</link>
     <description>The semi-math ramblings of Ian D. Eccles</description>
     {% for post in site.posts %}
     <item>
