@@ -2,6 +2,7 @@
 layout: post
 title: Terrible Ideas
 tags: code ruby rubygems
+sitemap_priority: 0.6
 ---
 While lurking on the #ruby-lang channel on freenode.net, 
 [oddmund](https://github.com/jraregris) suggested creating a `method_missing`

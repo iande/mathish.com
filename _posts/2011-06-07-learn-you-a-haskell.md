@@ -3,6 +3,7 @@ layout: post
 title: Learn You a Haskell for Great Good
 short_title: Learn You a Haskell
 tags: books code haskell thoughts
+sitemap_priority: 0.4
 ---
 To be completely honest, I'm not much of a reader.  My reading speed lies
 somewhere between "painfully slow" and "potentially illiterate," so reading

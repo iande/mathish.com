@@ -2,6 +2,26 @@ module SitemapFilters
   def date_to_sitemap date
     date.strftime("%Y-%m-%d")
   end
+  
+  def sitemap_changefreq phsh
+    if phsh['date']
+      delta = ((Time.now - phsh['date']) / 86400).to_i
+      case delta
+      when 0..2
+        'daily'
+      when 3..14
+        'weekly'
+      else
+        'monthly'
+      end
+    else
+      'monthly'
+    end
+  end
+  
+  def sitemap_priority phsh
+    phsh['sitemap_priority'] || '1.0'
+  end
 end
 
 module Jekyll

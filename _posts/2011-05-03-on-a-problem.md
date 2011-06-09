@@ -3,6 +3,7 @@ layout: post
 title: A Thought on Books in the Cloud
 short_title: Books in the Cloud
 tags: cloud thoughts
+sitemap_priority: 0.6
 ---
 ### Background
 

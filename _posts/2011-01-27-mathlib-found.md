@@ -2,6 +2,7 @@
 layout: post
 title: mathlib Found
 tags: mathlib java fractals complex math
+sitemap_priority: 0.5
 ---
 Roughly 5-6 years ago, I made an effort to take Fractal rendering code I
 developed during college and refactor it into a general purpose Java library,

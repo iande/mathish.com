@@ -2,6 +2,7 @@
 layout: post
 title: Let's Get Wonky!
 tags: slicehost site
+sitemap_priority: 0.1
 ---
 So, the email I (and scads of other people) got from Slicehost the other day
 was pretty uninformative, referenced a "forum" for continuing the conversation

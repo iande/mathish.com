@@ -6,5 +6,7 @@ layout: nil
   <url>
     <loc>http://mathish.com{{ post.url }}</loc>
     <lastmod>{{ post.date | date_to_sitemap }}</lastmod>
+    <changefreq>{{ post | sitemap_changefreq }}</changefreq>
+    <priority>{{ post | sitemap_priority }}</priority>
   </url>{% endfor %}
 </urlset>

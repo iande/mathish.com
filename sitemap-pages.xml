@@ -5,8 +5,12 @@ layout: nil
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{% for page in site.sitemap_pages %}
   <url>{% if page.url == '/index.html' %}
     <loc>http://mathish.com/</loc>
-    <lastmod>{{ site.time | date_to_sitemap }}</lastmod>{% else %}
+    <lastmod>{{ site.time | date_to_sitemap }}</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>{% else %}
     <loc>http://mathish.com{{ page.url }}</loc>
-    <lastmod>{{ page.mtime | date_to_sitemap }}</lastmod>{% endif %}
+    <lastmod>{{ page.mtime | date_to_sitemap }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.25</priority>{% endif %}
   </url>{% endfor %}
 </urlset>

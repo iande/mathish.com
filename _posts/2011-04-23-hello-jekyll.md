@@ -2,6 +2,7 @@
 layout: post
 title: Hello, Jekyll
 tags: jekyll rubygems ruby site
+sitemap_priority: 0.1
 ---
 I had been pretty happy using [Enki](http://www.enkiblog.com/) to drive this
 site.  It's minimal but sufficient, and very easy to tweak.  However, one of

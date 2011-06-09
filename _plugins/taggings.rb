@@ -41,12 +41,12 @@ module Jekyll
       self.name <=> other.name
     end
     
-    def mtime
+    def newest_post_at
       @posts.map { |p| p.date }.max
     end
     
     def to_liquid
-      [:name, :posts, :description, :url, :bucket, :mtime].inject({}) do |liq, prop|
+      [:name, :posts, :description, :url, :bucket, :newest_post_at].inject({}) do |liq, prop|
         liq[prop.to_s] = __send__ prop
         liq
       end

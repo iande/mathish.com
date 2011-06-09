@@ -5,6 +5,8 @@ layout: nil
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{% for tag in site.taggings %}
   <url>
     <loc>http://mathish.com{{ tag.url }}</loc>
-    <lastmod>{{ tag.mtime | date_to_sitemap }}</lastmod>
+    <lastmod>{{ tag.newest_post_at | date_to_sitemap }}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.1</priority>
   </url>{% endfor %}
 </urlset>

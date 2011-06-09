@@ -2,6 +2,7 @@
 layout: post
 title: OpenSSL - Brief Notes
 tags: openssl ruby notes
+sitemap_priority: 0.5
 ---
 When setting up OpenSSL validation in Ruby, I ran into a few issues.  I'll
 revisit this post later, but for my own memory, here's the big one:

@@ -2,6 +2,7 @@
 layout: post
 title: pg gem on OS X
 tags: postgres rubygems ruby notes
+sitemap_priority: 0.5
 ---
 ### Building `pg` gem on OS X Snow Leopard
 
