@@ -1,6 +1,7 @@
 ---
 layout: page
 title: About Me
+date: 2011-06-07
 ---
 There's a high degree of probability that my name is Ian D. Eccles.
 Assuming that premise is true, here are a few facts about me.

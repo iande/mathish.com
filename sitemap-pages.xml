@@ -6,11 +6,10 @@ layout: nil
   <url>{% if page.url == '/index.html' %}
     <loc>http://mathish.com/</loc>
     <lastmod>{{ site.time | date_to_sitemap }}</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>{% else %}
+    <priority>0.5</priority>{% else %}
     <loc>http://mathish.com{{ page.url }}</loc>
-    <lastmod>{{ page.mtime | date_to_sitemap }}</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>{{ page.date | date_to_sitemap }}</lastmod>
     <priority>0.25</priority>{% endif %}
+    <changefreq>{{ page | sitemap_changefreq }}</changefreq>
   </url>{% endfor %}
 </urlset>

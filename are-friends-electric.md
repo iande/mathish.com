@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Are Friends Electric?
+date: 2011-04-23
 ---
 ### People
 

@@ -1,6 +1,7 @@
 ---
 layout: page
 title: About Mathish
+date: 2011-06-07
 ---
 I've owned this domain &mdash; and a handful of others &mdash; for some time.
 For much of our time together, I've wielded it as a trivial function:

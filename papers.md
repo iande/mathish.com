@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Papers
+date: 2011-05-02
 ---
 An assortment of papers and documents I've written that may be useful but
 have not been converted to HTML.
