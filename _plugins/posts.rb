@@ -6,11 +6,9 @@ module PostFilters
   end
   
   def summarize post
-    if post['summary']
-    else
-      doc = Nokogiri::HTML::DocumentFragment.parse(post['content'])
-      (doc/'p').first.to_html
-    end
+    return post['summary'] if post['summary']
+    doc = Nokogiri::HTML::DocumentFragment.parse(post['content'])
+    (doc/'p').first.to_html
   end
 end  
 
