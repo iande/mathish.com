@@ -1,11 +1,11 @@
 ---
 layout: default
 ---
-<article>
+<article itemscope itemtype="http://schema.org/Article">
   <header>
-    <h2 class="page-title">{{ page.title }}</h2>
+    <h2 class="page-title" itemprop="name">{{ page.title }}</h2>
   </header>
-  <section>
+  <section itemprop="articleBody">
     {{ content }}
   </section>
   <footer>
@@ -13,14 +13,16 @@ layout: default
       <h3>Tagged</h3>
       <ul>
       {% for tag in page.taggings %}
-        <li class="tagging">
+        <li class="tagging" itemprop="articleSection">
           <a href="{{ tag.url }}" title="{{ tag.description }}">{{ tag.name }}</a>
         </li>
       {% endfor %}
       </ul>
     </nav>
-    <p class="pub-line">Published {{ page.date | date_to_string }} by
-      <a href="/ian.html" rel="author" title="Ian D. Eccles">Ian</a></p>
+    <p class="pub-line">
+      Published <time datetime="{{ page.date }}" itemprop="datePublished">{{ page.date | date_to_string }}</time>
+      by <a href="/ian.html" rel="author" title="Ian D. Eccles" itemprop="author">Ian</a>
+    </p>
   </footer>
   <aside>
     <h3>Related Posts</h3>
