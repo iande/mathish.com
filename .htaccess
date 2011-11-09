@@ -1,1 +1,2 @@
 AddCharset UTF-8 .html
+ErrorDocument 404 /404.html
