@@ -134,7 +134,7 @@ position, we could argue that each of the five documents listed above are
 actually the same document as far as our classifier is concerned, and if we
 relied on document counts for {% m %}P(C_m){% em %}, this set of documents
 would give some category an unfair bias.  So, let's consider another
-alternative for calculating P(C_m):
+alternative for calculating {% m %}P(C_m){% em %}:
 
 {% math %}
   P_3(C_m) = \frac{\sum_k t(T_k, C_m)}{\sum_j \sum_k t(T_k, C_j)}
