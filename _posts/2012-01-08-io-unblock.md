@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Refactoring OnStomp
-tags: code onstomp rubygems ruby stomp io_unblock
+tags: onstomp ruby stomp io_unblock
 ---
 Lately, I've been giving some thought to a few issues with
 the [OnStomp](https://github.com/meadvillerb/onstomp) gem and how I want

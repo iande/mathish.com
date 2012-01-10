@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Terrible Ideas
-tags: code ruby rubygems
+tags: code ruby
 sitemap_priority: 0.6
 ---
 While lurking on the #ruby-lang channel on freenode.net, 
