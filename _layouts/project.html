@@ -1,0 +1,47 @@
+---
+layout: default
+---
+<article>
+  <header>
+    <h2 class="page-title">
+      {{ page.title }}
+      {% if page.version %}
+        v{{ page.version }}
+      {% endif %}
+    </h2>
+    <ul class="project-info">
+      {% if page.download_url %}
+        <li><a href="{{ page.download_url }}">Download</a></li>
+      {% endif %}
+      {% if page.source_url %}
+        <li><a href="{{ page.source_url }}">Source</a></li>
+      {% endif %}
+      {% if page.docs_url %}
+        <li><a href="{{ page.docs_url }}">Docs</a></li>
+      {% endif %}
+      {% if page.changes_url %}
+        <li><a href="{{ page.chages_url }}">Changes</a></li>
+      {% endif %}
+      {% if page.license_url %}
+        <li><a href="{{ page.license_url }}">License</a></li>
+      {% endif %}
+    </ul>
+  </header>
+  <section>
+    {{ content }}
+  </section>
+  <footer>
+    {% if page.related_tags %}
+    <nav class="taggings">
+      <h3>Related Tags</h3>
+      <ul>
+        {% for tag in page.related_tags %}
+          <li class="tagging" itemprop="articleSection">
+            <a href="/tags/{{ tag }}.html" title="{{ tag }}">{{ tag }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+    {% endif %}
+  </footer>
+</article>

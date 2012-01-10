@@ -261,3 +261,13 @@ article.summary a.summary-link:link, article.summary a.summary-link:visited {
 .tag-cloud > li.more { font-size: 16px; }
 .tag-cloud > li.most { font-size: 18px; }
 li.tagging.active { font-weight: bold; }
+.behold > section .project-info {
+  display: block;
+  margin-top: 16px;
+  text-align: center;
+}
+.behold > section .project-info > li {
+  display: inline;
+  margin: 0;
+  padding: 0 8px;
+}
