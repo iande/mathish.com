@@ -1,2 +1,4 @@
 AddCharset UTF-8 .html
+AddCharset UTF-8 .rss
+AddCharset UTF-8 .xml
 ErrorDocument 404 /404.html
