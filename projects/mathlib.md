@@ -4,6 +4,8 @@ title: mathlib
 date: 2012-01-09
 license_url: http://www.gnu.org/licenses/gpl-2.0-standalone.html
 source_url: https://github.com/iande/mathlib
+related_tags:
+  - mathlib
 ---
 
 ### Summary
