@@ -12,7 +12,7 @@ related_tags:
 
 A small library that allows IO objects to be wrapped in the warmth of
 non-blocking goodness while being lovingly processed by its very own
-thread. As it bytes are read and written, callbacks are invoked.
+thread. As its bytes are read and written, callbacks are invoked.
 Glorious.
 
 ### Motivation
