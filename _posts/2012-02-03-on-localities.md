@@ -6,6 +6,7 @@ tags:
   - complexity
   - thoughts
   - code
+published: false
 ---
 **Note**: I'm still writing this post, and am only sharing it to prove I'm
 actually writing something on the matter of locality.
