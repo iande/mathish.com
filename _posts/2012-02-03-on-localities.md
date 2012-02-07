@@ -1,17 +1,13 @@
 ---
 layout: post
 title: On Locality
+published: false
 tags:
   - properties of code
   - complexity
   - thoughts
   - code
-published: false
 ---
-**Note**: I'm still writing this post, and am only sharing it to prove I'm
-actually writing something on the matter of locality.
-
-
 For this one, let's jump right into some code samples. We'll start with an
 imaginary `class_a.rb` file,
 

@@ -11,6 +11,10 @@ date: 2012-01-09
 
     A threaded stream, a few callbacks and a religion.
 
+*   [cognitive_distance](/projects/cognitive_distance.html)
+
+    A measurement of localitiy.
+
 *   [mathlib](/projects/mathlib.html)
 
     Java library for working with complex numbers, recurrence
