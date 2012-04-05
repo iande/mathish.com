@@ -2,4 +2,4 @@
 pygments: true
 markdown: kramdown
 lsi:      true
-include: "projects/onstomp/doc/_index.html"
+exclude: Rakefile, Gemfile, Gemfile.lock
