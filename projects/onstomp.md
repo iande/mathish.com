@@ -6,7 +6,7 @@ version: 1.0.5
 license_url: http://mdvlrb.com/onstomp/file.LICENSE.html
 download_url: https://rubygems.org/gems/onstomp
 source_url: https://github.com/meadvillerb/onstomp
-docs_url: http://mdvlrb.com/onstomp/
+docs_url: http://mathish.com/projects/onstomp/doc/
 changes_url: http://mdvlrb.com/onstomp/file.CHANGELOG.html
 related_tags:
   - onstomp
